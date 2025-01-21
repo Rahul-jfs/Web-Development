@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Positions</title>
+    <style>
+      .fixed {
+        width: 200px;
+        height: 50px;
+        background-color: blueviolet;
+        position: fixed;
+        bottom: 10%;
+        right: 0;
+      }
+      .sticky {
+        width: 100%;
+        height: 30px;
+        position: sticky;
+        top: 0;
+        background-color: burlywood;
+      }
+      .rel {
+        width: 400px;
+        height: 400px;
+        border: 2px solid black;
+        position: relative;
+      }
+      .abs {
+        width: 200px;
+        height: 100px;
+        border: 2px solid black;
+        position: absolute;
+        right: 20%;
+        top: 70%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="fixed">Fixed Element</div>
+    <h3>Positions</h3>
+    <p>
+      The position property specifies the type of positioning method used for an
+      element.
+      <br />There are five different position values:
+    </p>
+    <div class="sticky">I am Sticky</div>
+    <ul>
+      <li>static</li>
+      <li>relative</li>
+      <li>fixed</li>
+      <li>absolute</li>
+      <li>sticky</li>
+    </ul>
+    <p>
+      Elements are then positioned using the top, bottom, left, and right
+      properties. However, these properties will not work unless the position
+      property is set first.
+    </p>
+    <p>
+      HTML elements are positioned static by default.
+      <br />
+      Static positioned elements are not affected by the top, bottom, left, and
+      right properties.
+      <br />
+      An element with position: static; is not positioned in any special way; it
+      is always positioned according to the normal flow of the page:
+    </p>
+    <h3>position: relative;</h3>
+    <p>
+      An element with position: relative; is positioned relative to its normal
+      position. Setting the top, right, bottom, and left properties of a
+      relatively-positioned element will cause it to be adjusted away from its
+      normal position. Other content will not be adjusted to fit into any gap
+      left by the element.
+    </p>
+    <h3>position: fixed;</h3>
+    <p>
+      An element with position: fixed; is positioned relative to the viewport,
+      which means it always stays in the same place even if the page is
+      scrolled. The top, right, bottom, and left properties are used to position
+      the element.
+    </p>
+    <h3>position: absolute;</h3>
+    <p>
+      An element with position: absolute; is positioned relative to the nearest
+      positioned ancestor (instead of positioned relative to the viewport, like
+      fixed).
+      <br />
+      However; if an absolute positioned element has no positioned ancestors, it
+      uses the document body, and moves along with page scrolling.
+      <br />Note: Absolute positioned elements are removed from the normal flow,
+      and can overlap elements.
+    </p>
+    <div class="rel">
+      div with position:relative
+      <div class="abs">div with position: absolute</div>
+    </div>
+    <h3>position: sticky;</h3>
+    <p>
+      An element with position: sticky; is positioned based on the user's scroll
+      position. A sticky element toggles between relative and fixed, depending
+      on the scroll position. It is positioned relative until a given offset
+      position is met in the viewport - then it "sticks" in place (like
+      position:fixed).
+    </p>
+  </body>
+</html>
