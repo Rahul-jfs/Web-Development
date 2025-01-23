@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pseudo Elements and pseudo classes</title>
+    <style>
+      img {
+        display: block;
+      }
+      .hoverBtn {
+        margin: 30px;
+        background-color: rgb(109, 236, 109);
+        padding: 10px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .hoverBtn:hover {
+        background-color: limegreen;
+        color: white;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>CSS Pseudo-classes</h3>
+    <p>A pseudo-class is used to define a special state of an element.</p>
+    <p>For example, it can be used to:</p>
+    <ul>
+      <li>Style an element when a user moves the mouse over it</li>
+      <li>Style visited and unvisited links differently</li>
+      <li>Style an element when it gets focus</li>
+      <li>Style valid/invalid/required/optional form elements</li>
+    </ul>
+    <img src="./pseudoClassSyntax.png" alt="syntax image" />
+    <p>Some of the pseudo elements are</p>
+    <ul>
+      <li>:first-child</li>
+      <li>:focus</li>
+      <li>:hover</li>
+      <li>:last-child</li>
+      <li>:nth-child()</li>
+      <li>:nth-last-child()</li>
+    </ul>
+
+    <button class="hoverBtn">Hover over me</button>
+
+    <h3>CSS Pseudo-elements</h3>
+    <p>A CSS pseudo-element is used to style specific parts of an element.</p>
+    <p>For example, it can be used to:</p>
+    <ul>
+      <li>Style the first letter or line, of an element</li>
+      <li>Insert content before or after an element</li>
+      <li>Style the markers of list items</li>
+      <li>Style the viewbox behind a dialog box</li>
+    </ul>
+    <img src="./pseudoElementSyntax.png" alt="" />
+
+    <p>
+      The most used pseudo elements are ::before and ::after. <br />
+      The ::before pseudo-element can be used to insert some content before the
+      content of an element. <br />
+      The ::after pseudo-element can be used to insert some content after the
+      content of an element.
+    </p>
+  </body>
+</html>
