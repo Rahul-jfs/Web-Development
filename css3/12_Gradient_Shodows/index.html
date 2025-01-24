@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gradient and shadows</title>
+    <style>
+      .gradient {
+        width: 100%;
+        height: 200px;
+        background-image: linear-gradient(
+          110deg,
+          rgb(221, 19, 19),
+          rgb(17, 255, 223),
+          rgb(0, 0, 0)
+        );
+      }
+      h1 {
+        color: white;
+        text-shadow: 2px 2px 4px #000000;
+      }
+      h2 {
+        color: white;
+        text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+      }
+
+      .card {
+        width: 200px;
+        text-align: center;
+        box-shadow: 2px 2px 10px black;
+      }
+      .header {
+        font-size: 40px;
+        padding: 30px 10px;
+        background-color: rgb(0, 194, 26);
+      }
+      .footer {
+        padding: 20px 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>CSS Gradients</h3>
+    <p>
+      CSS gradients let you display smooth transitions between two or more
+      specified colors.
+      <br />
+      Syntax: background-image: linear-gradient(direction, color-stop1,
+      color-stop2, ...);
+      <br />direction values: to right, to bottom right, 180deg
+    </p>
+
+    <div class="gradient"></div>
+
+    <h1>Shadow Effects</h1>
+    <h2>Shadow</h2>
+
+    <h3>Box Shadow</h3>
+    <div class="card">
+      <div class="header">1</div>
+      <div class="footer">January 1, 2025</div>
+    </div>
+  </body>
+</html>
