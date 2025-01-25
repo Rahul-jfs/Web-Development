@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transform</title>
+    <style>
+      .rotate {
+        display: inline-block;
+        padding: 20px;
+        background-color: blueviolet;
+        transition: 1s;
+      }
+      .rotate:hover {
+        transform: rotate(360deg);
+      }
+
+      .btn {
+        background-color: brown;
+        padding: 10px;
+        color: white;
+        display: inline-block;
+        border-radius: 10px;
+        transition: 0.4s;
+      }
+      .btn:hover {
+        font-size: 20px;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CSS 2D Transforms</h1>
+    <p>
+      CSS transforms allow you to move, rotate, scale, and skew elements.
+      <br />Mouse over the element below to see a 2D transformation:
+    </p>
+    <div class="rotate">2D rotate</div>
+    <p>
+      With the CSS transform property you can use the following 2D
+      transformation functions:
+    </p>
+    <ul>
+      <li>translate()</li>
+      <li>rotate()</li>
+      <li>scaleX()</li>
+      <li>scaleY()</li>
+      <li>scale()</li>
+      <li>skewX()</li>
+      <li>skewY()</li>
+      <li>skew()</li>
+    </ul>
+    <h1>CSS Transitions</h1>
+    <p>
+      CSS transitions allows you to change property values smoothly, over a
+      given duration.
+      <br />
+      Mouse over the element below to see a CSS transition effect:
+    </p>
+    <div class="btn">CSS</div>
+    <ul>
+      <li>transition</li>
+      <li>
+        transition-delay: The transition-delay property specifies a delay (in
+        seconds) for the transition effect.
+      </li>
+      <li>
+        transition-duration: Total time required to perform the transition
+      </li>
+      <li>transition-property</li>
+      <li>transition-timing-function: ease/ linear/ ease-in /ease-out/</li>
+    </ul>
+  </body>
+</html>
