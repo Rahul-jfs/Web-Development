@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlexBox</title>
+    <style>
+      .flex-container {
+        display: flex;
+        background-color: brown;
+      }
+
+      .flex-container div {
+        font-size: 30px;
+        padding: 30px;
+        background-color: cornflowerblue;
+        margin: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CSS Flexbox</h1>
+    <p>
+      Flexbox is short for the Flexible Box Layout module. <br />
+      Flexbox is a layout method for arranging items in rows or columns.
+      <br />Flexbox makes it easier to design a flexible responsive layout
+      structure, without using float or positioning.
+    </p>
+    <h2>CSS Flexbox Components</h2>
+    <p>A flexbox always consists of:</p>
+    <ul>
+      <li>a Flex Container - the parent (container) div element</li>
+      <li>Flex Items - the items inside the container div</li>
+    </ul>
+
+    <p>
+      To start using CSS Flexbox, you need to first define a flex container.
+    </p>
+    <div class="flex-container">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+    </div>
+
+    <h1>CSS Flex Container</h1>
+    <p>The CSS properties we use for the flex container are:</p>
+    <ul>
+      <li>
+        flex-direction: <br />
+        <span
+          >The flex-direction property specifies the display-direction of flex
+          items in the flex container. <br />The flex-direction property can
+          have one of the following values: row, column, row-reverse,
+          column-reverse
+        </span>
+      </li>
+      <li>
+        flex-wrap: <br />
+        <span
+          >The flex-wrap property specifies whether the flex items should wrap
+          or not, if there is not enough room for them on one flex line.
+          <br />The flex-wrap property can have one of the following values:
+          nowrap, wrap, wrap-reverse</span
+        >
+      </li>
+      <li>flex-flow</li>
+      <li>
+        justify-content: <br />
+        The justify-content property is used to align the flex items when they
+        do not use all available space on the main-axis (horizontally).
+        <br />The justify-content property can have one of the following values:
+        center, flex-start, flex-end, space-around, space-between, space-evenly
+      </li>
+      <li>
+        align-items: <br />
+        The align-items property is used to align the flex items when they do
+        not use all available space on the cross-axis (vertically). <br />The
+        align-items property can have one of the following values: center,
+        flex-start, flex-end, stretch, baseline, normal
+      </li>
+      <li>
+        align-content: <br />
+        The align-content property is used to align the flex lines.
+        <br />The align-content property is similar to align-items, but instead
+        of aligning flex items, it aligns the flex lines. <br />The
+        align-content property can have one of the following values: center,
+        stretch, flex-start, flex-end, space-around, space-between, space-evenly
+      </li>
+    </ul>
+  </body>
+</html>
