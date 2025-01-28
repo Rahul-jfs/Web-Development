@@ -17,6 +17,36 @@
         background-color: cornflowerblue;
         margin: 20px;
       }
+
+      .container {
+        display: flex;
+        width: 100%;
+        background-color: lightgray;
+      }
+
+      .container div {
+        background-color: cornflowerblue;
+        margin: 10px;
+        padding: 20px;
+        text-align: center;
+        color: white;
+      }
+
+      .grow {
+        flex-grow: 2;
+      }
+
+      .grow1 {
+        flex-grow: 1;
+      }
+
+      .grow2 {
+        flex-grow: 2;
+      }
+
+      .grow3 {
+        flex-grow: 3;
+      }
     </style>
   </head>
   <body>
@@ -88,5 +118,42 @@
         stretch, flex-start, flex-end, space-around, space-between, space-evenly
       </li>
     </ul>
+
+    <h2>CSS Flex properties related to the flex containers</h2>
+    <h3>CSS flex-grow Property</h3>
+    <p>
+      The CSS flex-grow property specifies how much the item will grow relative
+      to the rest of the flexible items inside the same container.
+    </p>
+    <div class="container">
+      <div>1</div>
+      <div class="grow">2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+    </div>
+    <br />
+
+    <div class="container">
+      <div class="grow1">1</div>
+      <div class="grow2">2</div>
+      <div class="grow3">3</div>
+    </div>
+    <h3>CSS flex-shrink Property</h3>
+    <p>
+      The flex-shrink property in CSS defines how a flex item will shrink
+      relative to the other flexible items within the same container. This is
+      important for responsive design, as it allows elements to adjust their
+      size dynamically based on the available space.
+    </p>
+
+    <h3>CSS flex-wrap property</h3>
+    <p>
+      The CSS flex-wrap property is used to specify whether flex items are
+      forced into a single line or wrapped onto multiple lines. The flex-wrap
+      property enables the control direction in which lines are stacked. It is
+      used to designate a single-line or multi-line format to flex items inside
+      the flex container.
+    </p>
   </body>
 </html>
