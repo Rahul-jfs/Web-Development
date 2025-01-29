@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid</title>
+  </head>
+  <body>
+    <h1>CSS grid layout</h1>
+    <p>
+      A grid is a set of intersecting horizontal and vertical lines defining
+      rows and columns. Elements can be placed onto the grid within these column
+      and row lines. CSS grid layout has the following features:
+    </p>
+    <h2>Grid container</h2>
+    <p>
+      We create a grid container by declaring display: grid or display:
+      inline-grid on an element. As soon as we do this, all direct children of
+      that element become grid items.
+    </p>
+    <h2>Grid tracks</h2>
+    <p>
+      We define rows and columns on our grid with the grid-template-rows and
+      grid-template-columns properties. These define grid tracks. A grid track
+      is the space between any two adjacent lines on the grid. The image below
+      shows a highlighted track – this is the first-row track in our grid.
+      <br />
+      .wrapper { display: grid; grid-template-columns: 200px 200px 200px; }
+      <br />
+      grid-template-columns: 1fr 1fr 1fr;
+      <br />
+      the above can be written as <br />
+      grid-template-columns: repeat(3, 1fr);
+      <br />
+      grid-template-columns: 2fr 1fr 1fr;
+      <br />
+    </p>
+    <h2>Grid lines</h2>
+    <p>
+      It should be noted that when we define a grid we define the grid tracks,
+      not the lines. Grid then gives us numbered lines to use when positioning
+      items. In our three column, two row grid we have four column lines.
+      <br />
+      In the following example I am placing the first two items on our three
+      column track grid, using the grid-column-start, grid-column-end,
+      grid-row-start and grid-row-end properties. Working from left to right,
+      the first item is placed against column line 1, and spans to column line
+      4, which in our case is the far-right line on the grid. It begins at row
+      line 1 and ends at row line 3, therefore spanning two row tracks.
+      <br />
+      The second item starts on grid column line 1, and spans one track. This is
+      the default so I do not need to specify the end line. It also spans two
+      row tracks from row line 3 to row line 5. The other items will place
+      themselves into empty spaces on the grid.
+      <br />
+      .box1 { grid-column-start: 1; grid-column-end: 4; grid-row-start: 1;
+      grid-row-end: 3; }
+      <br />
+      .box2 { grid-column-start: 1; grid-row-start: 3; grid-row-end: 5; }
+    </p>
+  </body>
+</html>
