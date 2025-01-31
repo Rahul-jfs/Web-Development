@@ -52,12 +52,13 @@
         text-decoration: none;
       }
 
-      h1 {
+      h1,
+      h2 {
         margin: 15px 0;
         color: #e2e3e7;
       }
       p {
-        margin: 10px 0;
+        margin: 18px 0;
         font-size: 18px;
       }
       /* ul {
@@ -72,9 +73,14 @@
 
       .code-container {
         background-color: #282a36;
-        /* background-color: #44475a; */
         padding: 18px;
         border-radius: 10px;
+      }
+
+      .border-box {
+        border-radius: 10px;
+        border: 2px solid #35383f;
+        padding: 20px;
       }
 
       ol li {
@@ -83,6 +89,7 @@
 
       .highlight {
         background-color: #44475a;
+        color: #868d9a;
       }
       .pink {
         color: #ff79c6;
@@ -93,7 +100,23 @@
       }
       .comment {
         color: #6272a4;
-        padding-left: 15px;
+      }
+
+      .blue {
+        color: #8be9fd;
+      }
+      .purple {
+        color: #bd93f9;
+      }
+
+      .warning {
+        color: #ba5d38;
+        font-size: 22px;
+      }
+
+      .info {
+        color: #2a88b7;
+        font-size: 22px;
       }
 
       @media (max-width: 800px) {
@@ -112,7 +135,7 @@
       <div class="fixed-container">
         <ul>
           <li><a href="#js">JavaScript</a></li>
-          <li><a href="#variables">variables</a></li>
+          <li><a href="#variables">Variables</a></li>
         </ul>
       </div>
       <div class="content">
@@ -147,7 +170,7 @@
           the JavaScript engine.
         </p>
 
-        <h1>Variables</h1>
+        <h1 id="variables">Variables</h1>
         <p>A variable is a “named storage” for data. this information.</p>
         <p>Variables are used to store</p>
         <p>
@@ -175,7 +198,179 @@
             </li>
           </ol>
         </div>
+        <p>
+          The string is now saved into the memory area associated with the
+          variable. We can access it using the variable name:
+        </p>
+        <div class="code-container">
+          <ol>
+            <li><span class="pink">let</span> message;</li>
+            <li>
+              message <span class="pink">=</span>
+              <span class="yellow">'Hello!'</span>;
+            </li>
+            <li></li>
+            <li class="highlight"><span class="blue">alert</span>(message);</li>
+          </ol>
+        </div>
+        <p>
+          To be concise, we can combine the variable declaration and assignment
+          into a single line:
+        </p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="pink">let</span> message <span class="pink">=</span>
+              <span class="yellow">'Hello!'</span>;
+              <span class="comment"
+                >// define the variable and assign the value</span
+              >
+            </li>
+            <li></li>
+            <li>
+              <span class="blue">alert</span>(message);
+              <span class="comment">//Hello!</span>
+            </li>
+          </ol>
+        </div>
+        <p>We can also declare multiple variables in one line:</p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="pink">let</span> user <span class="pink">=</span>
+              <span class="yellow">'John'</span>, age
+              <span class="pink">=</span> <span class="purple">25</span>,
+              message <span class="pink">=</span>
+              <span class="yellow">'Hello!'</span>;
+            </li>
+          </ol>
+        </div>
+        <p>The multiline variant is a bit longer, but easier to read:</p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="pink">let</span> user
+              <span class="pink">=</span>
+              <span class="yellow">'John'</span>;
+            </li>
+            <li>
+              <span class="pink">let</span> age
+              <span class="pink">=</span>
+              <span class="purple">25</span>;
+            </li>
+            <li>
+              <span class="pink">let</span> message
+              <span class="pink">=</span>
+              <span class="yellow">'Hello!'</span>;
+            </li>
+          </ol>
+        </div>
+        <p>We can put any value in the box.</p>
+        <p>We can also change it as many times as we want:</p>
+        <div class="code-container">
+          <ol>
+            <li><span class="pink">let</span> message;</li>
+            <li></li>
+            <li>
+              message <span class="pink">=</span>
+              <span class="yellow">'Hello!'</span>;
+            </li>
+            <li></li>
+            <li>
+              message <span class="pink">=</span>
+              <span class="yellow">'World!'</span>;
+              <span class="comment"> // value changed</span>
+            </li>
+            <li></li>
+            <li><span class="blue">alert</span>(message);</li>
+          </ol>
+        </div>
+        <p>
+          <i class="fa-solid fa-triangle-exclamation warning"></i> Declaring
+          twice triggers an error
+        </p>
+        <p>A variable should be declared only once.</p>
+        <p>A repeated declaration of the same variable is an error:</p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="pink">let</span> message <span class="pink">=</span>
+              <span class="yellow">'This'</span>;
+            </li>
+            <li></li>
+            <li>
+              <span class="comment">// repeated 'let' leads to an error</span>
+            </li>
+            <li>
+              <span class="pink">let</span> message <span class="pink">=</span>
+              <span class="yellow">'That'</span>;
+              <span class="comment"
+                >// SyntaxError: 'message' has already been declared</span
+              >
+            </li>
+          </ol>
+        </div>
+        <h2>Variable naming</h2>
+        <p>There are two limitations on variable names in JavaScript:</p>
+        <ol>
+          <li>
+            The name must contain only letters, digits, or the symbols $ and _.
+          </li>
+          <li>The first character must not be a digit.</li>
+        </ol>
+        <p>
+          When the name contains multiple words,
+          <span class="blue">camelCase</span> is commonly used. That is: words
+          go one after another, each word except first starting with a capital
+          letter: <span class="highlight">myVeryLongName</span>.
+        </p>
+        <div class="border-box">
+          <h3><i class="fa-solid fa-circle-info info"></i> Code matters</h3>
+          <p>
+            Variables named <span class="highlight">apple</span> and
+            <span class="highlight">APPLE</span> are two different variables.
+          </p>
+        </div>
+        <h2>Constants</h2>
+        <p>
+          To declare a constant (unchanging) variable, use
+          <span class="highlight">const</span> instead of
+          <span class="highlight">let</span>:
+        </p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="pink">const</span> myBirthday
+              <span class="pink">=</span>
+              <span class="yellow">'18.04.1982'</span>;
+            </li>
+          </ol>
+        </div>
+        <p>
+          Variables declared using <span class="highlight">const</span> are
+          called “constants”. They cannot be reassigned. An attempt to do so
+          would cause an error:
+        </p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="pink">const</span> myBirthday
+              <span class="pink">=</span>
+              <span class="yellow">'18.04.1982'</span>;
+            </li>
+            <li></li>
+            <li>
+              myBirthday <span class="pink">=</span>
+              <span class="yellow">'01.01.2001'</span>;
+            </li>
+          </ol>
+        </div>
       </div>
     </div>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
   </body>
 </html>
