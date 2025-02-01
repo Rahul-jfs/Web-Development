@@ -70,6 +70,7 @@
         margin: 20px;
       } */
       li {
+        margin: 10px;
         font-size: 18px;
       }
       span {
@@ -144,6 +145,7 @@
           <li><a href="#variables">Variables</a></li>
           <li><a href="#dataTypes">Data types</a></li>
           <li><a href="#type-conversion">Type Conversions</a></li>
+          <li><a href="#operators">Operators</a></li>
         </ul>
       </div>
       <div class="content">
@@ -977,6 +979,310 @@
             </ol>
           </div>
         </div>
+        <h1 id="operators">Basic operators, maths</h1>
+        <p>
+          We know many operators from school. They are things like addition
+          <span class="highlight">+</span>, multiplication
+          <span class="highlight">*</span>, subtraction
+          <span class="highlight">-</span>, and so on.
+        </p>
+        <h2>Terms: “unary”, “binary”, “operand”</h2>
+        <p>Before we move on, let’s grasp some common terminology.</p>
+        <ul>
+          <li>
+            An operand – is what operators are applied to. For instance, in the
+            multiplication of <span class="highlight">5 * 2 </span> there are
+            two operands: the left operand is
+            <span class="highlight">5</span> and the right operand is
+            <span class="highlight">2</span>. Sometimes, people call these
+            “arguments” instead of “operands”.
+          </li>
+          <li>
+            An operator is unary if it has a single operand. For example, the
+            unary negation <span class="highlight">-</span> reverses the sign of
+            a number:
+          </li>
+          <div class="code-container">
+            <ol>
+              <li>
+                <span class="pink">let</span> x <span class="pink">=</span>
+                <span class="purple">1</span>;
+              </li>
+              <li></li>
+              <li class="highlight">x <span class="pink">= -</span>x;</li>
+              <li>
+                <span class="blue">alert</span>( x );
+                <span class="comment">// -1, unary negation was applied</span>
+              </li>
+            </ol>
+          </div>
+          <li>
+            An operator is binary if it has two operands. The same minus exists
+            in binary form as well:
+          </li>
+          <div class="code-container">
+            <ol>
+              <li>
+                <span class="pink">let</span> x <span class="pink">=</span>
+                <span class="purple">1</span> y <span class="pink">=</span>
+                <span class="purple">3</span>;
+              </li>
+              <li>
+                <span class="blue">alert</span>( y <span class="pink">-</span> x
+                );
+                <span class="comment">// 2, binary minus subtracts values</span>
+              </li>
+            </ol>
+          </div>
+        </ul>
+        <h2>Maths</h2>
+        <p>The following math operations are supported:</p>
+        <ul>
+          <li>Addition <span class="highlight">+</span></li>
+          <li>Substraction <span class="highlight">-</span></li>
+          <li>Multiplication <span class="highlight">*</span></li>
+          <li>Division <span class="highlight">/</span></li>
+          <li>Remainder <span class="highlight">%</span></li>
+          <li>Exponential <span class="highlight">**</span></li>
+        </ul>
+        <h2>String concatenation with binary +</h2>
+        <p>
+          Let’s meet the features of JavaScript operators that are beyond school
+          arithmetics.
+        </p>
+        <p>
+          Usually, the plus operator <span class="highlight">+</span> sums
+          numbers.
+        </p>
+        <p>
+          But, if the binary <span class="highlight">+</span> is applied to
+          strings, it merges (concatenates) them:
+        </p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="pink">let </span> s <span class="pink">=</span>
+              <span class="yellow">"my"</span>
+              <span class="pink">+</span>
+              <span class="yellow">"string"</span>
+            </li>
+            <li>
+              <span class="blue">alert</span>(s);
+              <span class="comment">// mystring</span>
+            </li>
+          </ol>
+        </div>
+        <p>
+          Note that if any of the operands is a string, then the other one is
+          converted to a string too.
+        </p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="blue">alert</span>(<span class="yellow">'1'</span>
+              <span class="pink">+</span> <span class="purple">2</span> );
+              <span class="comment">//"12"</span>
+            </li>
+            <li>
+              <span class="blue">alert</span>(<span class="purple">2</span>
+              <span class="pink">+</span> <span class="yellow">'1'</span> );
+              <span class="comment">//"21"</span>
+            </li>
+            <li>
+              <span class="blue">alert</span>(<span class="yellow">'1'</span>
+              <span class="pink">+</span> <span class="purple">2</span>
+              <span class="pink">+</span> <span class="purple">2</span> );
+              <span class="comment">//"122 and not 14"</span>
+            </li>
+          </ol>
+        </div>
+        <p>
+          The binary <span class="highlight">+</span> is the only operator that
+          supports strings in such a way. Other arithmetic operators work only
+          with numbers and always convert their operands to numbers.
+        </p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="blue">alert</span>(<span class="purple">6</span>
+              <span class="pink">-</span> <span class="yellow">'2'</span> );
+              <span class="comment">// 4, converts '2' to a number</span>
+            </li>
+            <li>
+              <span class="blue">alert</span>(<span class="purple">6</span>
+              <span class="pink">/</span> <span class="yellow">'2'</span> );
+              <span class="comment"
+                >// 3, converts both operands to numbers</span
+              >
+            </li>
+          </ol>
+        </div>
+        <h2>Numeric conversion, unary +</h2>
+        <p>
+          The unary plus or, in other words, the plus operator
+          <span class="highlight">+</span> applied to a single value, doesn’t do
+          anything to numbers. But if the operand is not a number, the unary
+          plus converts it into a number.
+        </p>
+        <p>It actually does the same thing as Number(...), but is shorter.</p>
+        <p>For example:</p>
+        <div class="code-container">
+          <ol>
+            <li><span class="comment">// No effect on numbers</span></li>
+            <li>
+              <span class="pink">let</span> x <span class="pink">=</span>
+              <span class="purple">1</span>;
+            </li>
+            <li>
+              <span class="blue">alert</span>(<span class="pink"> +</span>x );
+              <span class="comment">//1</span>
+            </li>
+            <li></li>
+            <li>
+              <span class="pink">let</span> y <span class="pink">=</span>
+              <span class="purple">-2</span>;
+            </li>
+            <li>
+              <span class="blue">alert</span>(<span class="pink"> +</span>y );
+              <span class="comment">//-2</span>
+            </li>
+            <li></li>
+            <li><span class="comment">// Converts non-numbers</span></li>
+            <li>
+              <span class="blue">alert</span>(<span class="pink"> +</span>true
+              );
+              <span class="comment">//1</span>
+            </li>
+            <li>
+              <span class="blue">alert</span>(<span class="pink"> +</span
+              ><span class="yellow">""</span> );
+              <span class="comment">//0</span>
+            </li>
+            <li></li>
+            <li>
+              <span class="pink">let</span> apple <span class="pink">=</span>
+              <span class="yellow">"2"</span>;
+            </li>
+            <li>
+              <span class="pink">let</span> oranges <span class="pink">=</span>
+              <span class="yellow">"3"</span>;
+            </li>
+            <li>
+              <span class="blue">alert</span>( apple
+              <span class="pink">+</span> oranges );
+              <span class="comment"
+                >// "23", the binary plus concatenates strings</span
+              >;
+            </li>
+            <li></li>
+            <li>
+              <span class="comment"
+                >// If we want to treat them as numbers, we need to convert and
+                then sum them:</span
+              >
+            </li>
+            <li>
+              <span class="blue">alert</span>( <span class="pink">+</span>apple
+              <span class="pink">+</span> <span class="pink">+</span>oranges );
+              <span class="comment"
+                >// 5, both values converted to numbers before the binary
+                plus</span
+              >;
+            </li>
+            <li></li>
+            <li><span class="comment">// the longer variant</span></li>
+            <li>
+              <span class="comment"
+                >// alert( Number(apples) + Number(oranges) ); // 5
+              </span>
+            </li>
+          </ol>
+        </div>
+        <h2>Assignment</h2>
+        <p>Let’s note that an assignment = is also an operator.</p>
+        <h2>Increment/decrement</h2>
+        <p>
+          Increasing or decreasing a number by one is among the most common
+          numerical operations.
+        </p>
+        <p>So, there are special operators for it:</p>
+        <ul>
+          <li>
+            Increment <span class="highlight">++</span> increases a variable by
+            1:
+            <div class="code-container">
+              <ol>
+                <li>
+                  <span class="pink">let </span> counter
+                  <span class="pink"> = </span> <span class="purple">2</span>;
+                </li>
+                <li>
+                  counter <span class="purple">++</span>;
+                  <span class="comment"
+                    >// works the same as counter = counter + 1, but is
+                    shorter</span
+                  >
+                </li>
+                <li>
+                  <span class="blue">alert</span>( counter );
+                  <span class="comment">//3</span>
+                </li>
+              </ol>
+            </div>
+          </li>
+          <li>
+            Decrement <span class="highlight">--</span> decreases a variable by
+            1:
+
+            <div class="code-container">
+              <ol>
+                <li>
+                  <span class="pink">let </span> counter
+                  <span class="pink"> = </span> <span class="purple">2</span>;
+                </li>
+                <li>
+                  counter <span class="purple">--</span>;
+                  <span class="comment"
+                    >// works the same as counter = counter - 1, but is
+                    shorter</span
+                  >
+                </li>
+                <li>
+                  <span class="blue">alert</span>( counter );
+                  <span class="comment">//1</span>
+                </li>
+              </ol>
+            </div>
+          </li>
+        </ul>
+        <div class="border-box">
+          <p>
+            <i class="fa-solid fa-triangle-exclamation warning"></i> Important
+          </p>
+          <p>
+            Increment/decrement can only be applied to variables. Trying to use
+            it on a value like 5++ will give an error.
+          </p>
+        </div>
+        <h2>Bitwise operators</h2>
+        <p>
+          Bitwise operators treat arguments as 32-bit integer numbers and work
+          on the level of their binary representation.
+        </p>
+        <p>
+          These operators are not JavaScript-specific. They are supported in
+          most programming languages.
+        </p>
+        <p>The list of operators:</p>
+        <ul>
+          <li>AND ( <span class="highlight">&</span> )</li>
+          <li>OR ( <span class="highlight">|</span> )</li>
+          <li>XOR ( <span class="highlight">^</span> )</li>
+          <li>NOT ( <span class="highlight">~</span> )</li>
+          <li>LEFT SHIFT ( <span class="highlight">&lt;&lt;</span> )</li>
+          <li>RIGHT SHIFT ( <span class="highlight">&gt;&gt;</span> )</li>
+        </ul>
+        <p>These operators are used very rarely</p>
       </div>
     </div>
 
