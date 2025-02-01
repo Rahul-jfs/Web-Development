@@ -48,7 +48,7 @@
       }
 
       .content {
-        padding: 20px 20px;
+        padding: 20px 50px;
         margin-left: 250px;
       }
 
@@ -83,6 +83,7 @@
       }
 
       .border-box {
+        margin: 20px 0;
         border-radius: 10px;
         border: 2px solid #35383f;
         padding: 20px;
@@ -142,6 +143,7 @@
           <li><a href="#js">JavaScript</a></li>
           <li><a href="#variables">Variables</a></li>
           <li><a href="#dataTypes">Data types</a></li>
+          <li><a href="#type-conversion">Type Conversions</a></li>
         </ul>
       </div>
       <div class="content">
@@ -716,6 +718,265 @@
             <span class="highlight">alert</span> is a function
           </li>
         </ol>
+        <h1 id="type-conversion">Type Conversions</h1>
+        <p>
+          Most of the time, operators and functions automatically convert the
+          values given to them to the right type.
+        </p>
+        <p>
+          For example, <span class="highlight">alert</span> automatically
+          converts any value to a string to show it. Mathematical operations
+          convert values to numbers.
+        </p>
+        <p>
+          There are also cases when we need to explicitly convert a value to the
+          expected type.
+        </p>
+        <h2>String Conversion</h2>
+        <p>
+          String conversion happens when we need the string form of a value.
+        </p>
+        <p>
+          call the <span class="highlight">String(value)</span> function to
+          convert a value to a string:
+        </p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="pink">let</span> value
+              <span class="pink">=</span> true;
+            </li>
+            <li>
+              <span class="blue">alert</span>(
+              <span class="pink">typeof</span> value);
+              <span class="comment">//boolean</span>
+            </li>
+            <li></li>
+            <li>
+              value <span class="pink">=</span>
+              <span class="blue">String</span>(value);
+              <span class="comment">// now value is a string "true" </span>
+            </li>
+            <li>
+              <span class="blue">alert</span>(
+              <span class="pink">typeof</span> value);
+              <span class="comment">//boolean</span>
+            </li>
+          </ol>
+        </div>
+        <p>
+          String conversion is mostly obvious. A
+          <span class="highlight">false</span> becomes
+          <span class="highlight">"false"</span>,
+          <span class="highlight">null</span> becomes
+          <span class="highlight">"null"</span>, etc.
+        </p>
+        <h2>Numeric Conversion</h2>
+        <p>
+          Numeric conversion in mathematical functions and expressions happens
+          automatically.
+        </p>
+        <p>
+          For example, when division <span class="highlight">/</span> is applied
+          to non-numbers:
+        </p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="blue">alert</span>(<span class="yellow">"6"</span>
+              <span class="pink">/</span>
+              <span class="yellow">"2"</span> );
+              <span class="comment"
+                >// 3, strings are converted to numbers</span
+              >
+            </li>
+          </ol>
+        </div>
+        <p>
+          We can use the <span class="highlight">Number(value)</span> function
+          to explicitly convert a <span class="highlight">value</span> to a
+          number:
+        </p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="pink">let</span> str <span class="pink">=</span>
+              <span class="yellow">"123"</span>;
+            </li>
+            <li>
+              <span class="blue">alert</span>(
+              <span class="pink">typeof</span> str);
+              <span class="comment">//string</span>
+            </li>
+            <li></li>
+            <li>
+              <span class="pink">let</span> num <span class="pink">=</span>
+              <span class="blue">Number</span>(str);
+              <span class="comment">//becomes a number 123</span>
+            </li>
+            <li></li>
+            <li>
+              <span class="blue">alert</span>(
+              <span class="pink">typeof</span> num);
+              <span class="comment">//number</span>
+            </li>
+          </ol>
+        </div>
+        <p>
+          Explicit conversion is usually required when we read a value from a
+          string-based source like a text form but expect a number to be
+          entered.
+        </p>
+        <p>
+          If the string is not a valid number, the result of such a conversion
+          is <span class="highlight">NaN</span>. For instance:
+        </p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="pink">let</span> age <span class="pink">=</span>
+              <span class="blue">Number</span>(
+              <span class="yellow"
+                >"an arbitrary string instead of a number"</span
+              >);
+            </li>
+            <li></li>
+            <li>
+              <span class="blue">alert</span>(age);
+              <span class="comment">//NaN, conversion failed</span>
+            </li>
+          </ol>
+        </div>
+        <div class="border-box">
+          <p>Number conversion rules:</p>
+          <p>undefied becomes Nan</p>
+          <p>null becomes 0</p>
+          <p>true becomes 1</p>
+          <p>false becomes 0</p>
+          <p>
+            String : Whitespaces (includes spaces, tabs \t, newlines \n etc.)
+            from the start and end are removed. If the remaining string is
+            empty, the result is 0. Otherwise, the number is “read” from the
+            string. An error gives <span class="highlight">NaN</span>.
+          </p>
+        </div>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="blue">alert</span>(
+              <span class="blue">Number</span>(<span class="yellow"
+                >" 123 "</span
+              >
+              ) );
+              <span class="comment">//123</span>
+            </li>
+            <li>
+              <span class="blue">alert</span>(
+              <span class="blue">Number</span>(<span class="yellow">"123z"</span
+              >) );
+              <span class="comment"
+                >// NaN (error reading a number at "z")</span
+              >
+            </li>
+            <li>
+              <span class="blue">alert</span>(
+              <span class="blue">Number</span>(true) );
+              <span class="comment">//1</span>
+            </li>
+            <li>
+              <span class="blue">alert</span>(
+              <span class="blue">Number</span>(false ) );
+
+              <span class="comment">//0</span>
+            </li>
+          </ol>
+        </div>
+        <p>
+          Please note that <span class="highlight">null</span> and
+          <span class="highlight">undefined</span> behave differently here:
+          <span class="highlight">null</span> becomes zero while
+          <span class="highlight">undefined</span>
+          becomes <span class="highlight">NaN</span>.
+        </p>
+        <h2>Boolean Conversion</h2>
+        <p>Boolean conversion is the simplest one.</p>
+        <p>
+          It happens in logical operations (later we’ll meet condition tests and
+          other similar things) but can also be performed explicitly with a call
+          to <span class="highlight">Boolean(value)</span>.
+        </p>
+        <p>The conversion rule:</p>
+        <ul>
+          <li>
+            Values that are intuitively “empty”, like
+            <span class="highlight">0</span>, an empty string,
+            <span class="highlight">null</span>,
+            <span class="highlight">undefined</span>, and
+            <span class="highlight">NaN</span>, become
+            <span class="highlight">false</span>.
+          </li>
+          <li>Other values become <span class="highlight">true</span>.</li>
+        </ul>
+        <p>For instance:</p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="blue">alert</span>(
+              <span class="blue">Boolean</span>(<span class="purple">1</span> )
+              ); <span class="comment">//true</span>
+            </li>
+            <li>
+              <span class="blue">alert</span>(
+              <span class="blue">Boolean</span>(<span class="purple">0</span> )
+              ); <span class="comment">//false</span>
+            </li>
+            <li></li>
+            <li>
+              <span class="blue">alert</span>(
+              <span class="blue">Boolean</span>(<span class="yellow"
+                >"Hello"</span
+              >
+              ) ); <span class="comment">//true</span>
+            </li>
+            <li>
+              <span class="blue">alert</span>(
+              <span class="blue">Boolean</span>(<span class="yellow">""</span> )
+              ); <span class="comment">//false</span>
+            </li>
+          </ol>
+        </div>
+        <div class="border-box">
+          <p>
+            <i class="fa-solid fa-triangle-exclamation warning"></i>
+            Please note: the string with zero
+            <span class="highlight">"0"</span> is
+            <span class="highlight">true</span>
+          </p>
+          <p>
+            Some languages (namely PHP) treat
+            <span class="highlight">"0"</span> as
+            <span class="highlight">false</span>. But in JavaScript, a non-empty
+            string is always <span class="highlight">true</span>.
+          </p>
+          <div class="code-container">
+            <ol>
+              <li>
+                <span class="blue">alert</span>(
+                <span class="blue">Boolean</span>(
+                <span class="yellow">"0"</span> ) );
+                <span class="comment">//true</span>
+              </li>
+              <li>
+                <span class="blue">alert</span>(
+                <span class="blue">Boolean</span>(
+                <span class="yellow">" "</span> ) );
+                <span class="comment"
+                  >// spaces, also true (any non-empty string is true)</span
+                >
+              </li>
+            </ol>
+          </div>
+        </div>
       </div>
     </div>
 
