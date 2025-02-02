@@ -146,6 +146,8 @@
           <li><a href="#dataTypes">Data types</a></li>
           <li><a href="#type-conversion">Type Conversions</a></li>
           <li><a href="#operators">Operators</a></li>
+          <li><a href="#comparisons">Comparisons</a></li>
+          <li><a href="#conditional-Branching">Conditional Branching</a></li>
         </ul>
       </div>
       <div class="content">
@@ -1283,6 +1285,255 @@
           <li>RIGHT SHIFT ( <span class="highlight">&gt;&gt;</span> )</li>
         </ul>
         <p>These operators are used very rarely</p>
+        <h1 id="comparisons">Comparisons</h1>
+        <h2>Boolean is the result</h2>
+        <p>All comparison operators return a boolean value:</p>
+        <ul>
+          <li>true – means “yes”, “correct” or “the truth”.</li>
+          <li>false – means “no”, “wrong” or “not the truth”.</li>
+        </ul>
+        <p>For example:</p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="blue">alert</span>(<span class="purple">2</span>
+              <span class="pink">></span> <span class="purple">1</span>);
+              <span class="comment"> // true (correct)</span>
+            </li>
+            <li>
+              <span class="blue">alert</span>(<span class="purple">2</span>
+              <span class="pink">==</span> <span class="purple">1</span>);
+              <span class="comment"> // false (wrong)</span>
+            </li>
+            <li>
+              <span class="blue">alert</span>(<span class="purple">2</span>
+              <span class="pink">!=</span> <span class="purple">1</span>);
+              <span class="comment"> // true (correct)</span>
+            </li>
+          </ol>
+        </div>
+        <h2>String comparison</h2>
+        <p>Strings are compared letter-by-letter.</p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="blue">alert</span>(<span class="yellow">'Z'</span>
+              <span class="pink">></span> <span class="yellow">'A'</span>);
+              <span class="comment"> // true </span>
+            </li>
+            <li>
+              <span class="blue">alert</span>(<span class="yellow">'Glow'</span>
+              <span class="pink">></span> <span class="yellow">'Glee'</span>);
+              <span class="comment"> // true </span>
+            </li>
+            <li>
+              <span class="blue">alert</span>(<span class="yellow">'Bee'</span>
+              <span class="pink">></span> <span class="yellow">'Be'</span>);
+              <span class="comment"> // true </span>
+            </li>
+          </ol>
+        </div>
+        <h2>Comparison of different types</h2>
+        <p>
+          When comparing values of different types, JavaScript converts the
+          values to numbers.
+        </p>
+        <p>For example:</p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="blue">alert</span>(<span class="yellow">'2'</span>
+              <span class="pink">></span> <span class="purple">1</span>);
+              <span class="comment">
+                // true, string '2' becomes a number 2
+              </span>
+            </li>
+            <li>
+              <span class="blue">alert</span>(<span class="yellow">'01'</span>
+              <span class="pink">==</span> <span class="purple">1</span>);
+              <span class="comment">
+                // true, string '01' becomes a number 1
+              </span>
+            </li>
+          </ol>
+        </div>
+        <p>
+          For boolean values, <span class="highlight">true</span> becomes
+          <span class="highlight">1</span> and
+          <span class="highlight">False</span> becomes
+          <span class="highlight">0</span>.
+        </p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="blue">alert</span>( true
+              <span class="pink"> == </span> <span class="purple">1</span>);
+              <span class="comment"> // true </span>
+            </li>
+            <li>
+              <span class="blue">alert</span>( false
+              <span class="pink"> == </span> <span class="purple">0</span>);
+              <span class="comment"> // true </span>
+            </li>
+          </ol>
+        </div>
+        <h2>Strict equality</h2>
+        <p>
+          A regular equality check <span class="highlight">==</span> has a
+          problem. It cannot differentiate <span class="highlight">0</span> from
+          <span class="highlight">false</span>:
+        </p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="blue">alert</span>( <span class="pruple">0</span>
+              <span class="pink"> == </span> false );
+              <span class="comment"> // true </span>
+            </li>
+          </ol>
+        </div>
+        <p>The same thing happens with an empty string:</p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="blue">alert</span>( <span class="pruple">''</span>
+              <span class="pink"> == </span> false );
+              <span class="comment"> // true </span>
+            </li>
+          </ol>
+        </div>
+        <p>
+          What to do if we’d like to differentiate
+          <span class="highlight">0</span> from
+          <span class="highlight">false</span>?
+        </p>
+        <p>
+          <b
+            >A strict equality operator
+            <span class="highlight">===</span> checks the equality without type
+            conversion.
+          </b>
+        </p>
+        <p>
+          In other words, if <span class="highlight">a</span> and
+          <span class="highlight">b</span> are of different types, then
+          <span class="highlight">a === b</span>
+          immediately returns <span class="highlight">false</span> without an
+          attempt to convert them.
+        </p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="blue">alert</span>( <span class="pruple">0</span>
+              <span class="pink"> === </span> false );
+              <span class="comment">
+                // false, because the types are different
+              </span>
+            </li>
+          </ol>
+        </div>
+        <p>
+          There is also a “strict non-equality” operator
+          <span class="highlight">!==</span> analogous to
+          <span class="highlight">!=</span>.
+        </p>
+        <h2>Comparison with null and undefined</h2>
+        <p>For a strict equality check <span class="highlight">===</span></p>
+        <p>
+          These values are different, because each of them is a different type.
+        </p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="blue">alert</span>(
+              <span class="pink">null === undefined</span>
+              );
+              <span class="comment"> // false </span>
+            </li>
+          </ol>
+        </div>
+        <p>For a non-strict check <span class="highlight">==</span></p>
+        <p>
+          These values are different, because each of them is a different type.
+        </p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="blue">alert</span>(
+              <span class="pink">null == undefined</span>
+              );
+              <span class="comment"> // true </span>
+            </li>
+          </ol>
+        </div>
+        <h1 id="conditional-Branching">Conditional branching: if, '?'</h1>
+        <p>
+          Sometimes, we need to perform different actions based on different
+          conditions.
+        </p>
+        <h2>The “if” statement</h2>
+        <p>
+          The <span class="highlight">if(...)</span> statement evaluates a
+          condition in parentheses and, if the result is
+          <span class="highlight">true</span>, executes a block of code.
+        </p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="pink">let </span> year <span class="pink"> = </span>
+              <span class="blue">prompt </span>(<span class="yellow"
+                >'In which year was ECMAScript-2015 specification published?',
+                ''</span
+              >
+              );
+            </li>
+            <li>
+              <span class="pink">if </span>(year <span class="pink"> == </span>
+              <span class="purple">2015</span>)
+              <span class="blue">alert</span>(<span class="yellow"
+                >'You are right!'</span
+              >
+              );
+            </li>
+          </ol>
+        </div>
+        <h2>The “else” clause</h2>
+        <p>
+          The if statement may contain an optional else block. It executes when
+          the condition is falsy.
+        </p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="pink">let </span> year <span class="pink"> = </span>
+              <span class="blue">prompt </span>(<span class="yellow"
+                >'In which year was ECMAScript-2015 specification published?',
+                ''</span
+              >
+              );
+            </li>
+            <li></li>
+            <li>
+              <span class="pink">if </span>( year
+              <span class="pink"> == </span> <span class="purple">2015</span> )
+              {
+            </li>
+            <li>
+              <span class="blue">&nbsp; &nbsp; alert</span>(<span class="yellow"
+                >'You are right!'</span
+              >
+              );
+            </li>
+            <li>} <span class="pink">else </span> {</li>
+            <li>
+              <span class="blue">&nbsp; &nbsp; alert</span>(<span class="yellow"
+                >'How can you be so wrong?'</span
+              >
+              ); <span class="comment">// any value except 2015</span>
+            </li>
+            <li>}</li>
+          </ol>
+        </div>
       </div>
     </div>
 
