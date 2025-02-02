@@ -1534,6 +1534,143 @@
             <li>}</li>
           </ol>
         </div>
+        <h2>Several conditions: “else if”</h2>
+        <p>
+          Sometimes, we’d like to test several variants of a condition. The else
+          if clause lets us do that.
+        </p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="pink">let </span> year <span class="pink"> = </span>
+              <span class="blue">prompt </span>(<span class="yellow"
+                >'In which year was ECMAScript-2015 specification published?',
+                ''</span
+              >
+              );
+            </li>
+            <li></li>
+            <li>
+              <span class="pink">if </span>( year
+              <span class="pink"> &lt; </span>
+              <span class="purple">2015</span> ) {
+            </li>
+            <li>
+              <span class="blue">&nbsp; &nbsp; alert</span>(<span class="yellow"
+                >'Too early...'</span
+              >
+              );
+            </li>
+            <li>} <span class="pink">else if </span>( year > 2015) {</li>
+            <li>
+              <span class="blue">&nbsp; &nbsp; alert</span>(<span class="yellow"
+                >'Too late'</span
+              >
+              );
+            </li>
+
+            <li>} <span class="pink">else </span> {</li>
+            <li>
+              <span class="blue">&nbsp; &nbsp; alert</span>(<span class="yellow"
+                >'Exactly!'</span
+              >
+              );
+            </li>
+            <li>}</li>
+          </ol>
+        </div>
+        <h2>Conditional operator ‘?’</h2>
+        <p>Sometimes, we need to assign a variable depending on a condition.</p>
+        <div class="code-container">
+          <ol>
+            <li><span class="pink">let</span> accessAllowed;</li>
+            <li>
+              <span class="pink">let</span> age <span class="pink">= </span>
+              <span class="blue">alert</span>(
+              <span class="yellow">'How old are you?', ''</span> );
+            </li>
+            <li></li>
+            <li>
+              <span class="pink">if</span> ( age <span class="pink"> > </span>
+              <span class="purple">18</span> ) {
+            </li>
+            <li>
+              &nbsp; &nbsp; accessAllowed <span class="pink"> = </span> true ;
+            </li>
+            <li>} <span class="pink"> else </span> {</li>
+            <li>
+              &nbsp; &nbsp; accessAllowed <span class="pink">= </span> false;
+            </li>
+            <li>}</li>
+            <li></li>
+            <li><span class="blue">alert</span>(accessAllowed);</li>
+          </ol>
+        </div>
+        <p>
+          The so-called “conditional” or “question mark” operator lets us do
+          that in a shorter and simpler way.
+        </p>
+        <p>The syntax is:</p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="pink">let</span> result
+              <span class="pink"> = </span> condition
+              <span class="pink">?</span> result1
+              <span class="pink">:</span> result2;
+            </li>
+          </ol>
+        </div>
+        <p>For Example:</p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="pink">let</span> accessAllowed
+              <span class="pink"> = </span> (age <span class="pink"> > </span>
+              <span class="purple">18</span> ) <span class="pink">?</span> true
+              <span class="pink">:</span> false;
+            </li>
+          </ol>
+        </div>
+        <h2>Multiple ‘?’</h2>
+        <p>
+          A sequence of question mark operators ? can return a value that
+          depends on more than one condition.
+        </p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="pink">let</span> age
+              <span class="pink"> = </span>
+              <span class="blue">alert</span> (
+              <span class="yellow">"age?", <span class="purple">18</span></span>
+              );
+            </li>
+            <li>
+              <span class="pink">let </span> message
+              <span class="pink"> = </span> (age <span class="pink">&lt;</span>
+              <span class="purple">3</span> ) <span class="pink">? </span>
+              <span class="yellow">'Hi, baby!'</span>
+              <span class="pink">: </span>
+            </li>
+            <li>
+              &nbsp; &nbsp; (age <span class="pink">&lt </span>
+              <span class="purple">18</span> ) <span class="pink">? </span>
+              <span class="yellow">'Hello!'</span> <span class="pink">:</span>
+            </li>
+            <li>
+              &nbsp; &nbsp; (age <span class="pink">&lt </span>
+              <span class="purple">100</span> ) <span class="pink">? </span>
+              <span class="yellow">'Greetings!'</span>
+              <span class="pink">:</span>
+            </li>
+            <li>
+              &nbsp; &nbsp; <span class="yellow">'What an unusual age!'</span> ;
+            </li>
+            <li></li>
+            <li><span class="blue">alert</span>( message ) ;</li>
+          </ol>
+        </div>
       </div>
     </div>
 
