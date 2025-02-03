@@ -148,6 +148,7 @@
           <li><a href="#operators">Operators</a></li>
           <li><a href="#comparisons">Comparisons</a></li>
           <li><a href="#conditional-Branching">Conditional Branching</a></li>
+          <li><a href="#logical-operators">Logical Operators</a></li>
         </ul>
       </div>
       <div class="content">
@@ -1671,6 +1672,159 @@
             <li><span class="blue">alert</span>( message ) ;</li>
           </ol>
         </div>
+        <h1 id="logical-operators">Logical operators</h1>
+        <p>
+          There are four logical operators in JavaScript:
+          <span class="highlight">||</span> (OR),
+          <span class="highlight">&&</span> (AND),
+          <span class="highlight">!</span> (NOT),
+          <span class="highlight">??</span> (Nullish Coalescing). Here we cover
+          the first three, the ?? operator is in the next article.
+        </p>
+        <h2>|| (OR)</h2>
+        <p>The “OR” operator is represented with two vertical line symbols:</p>
+        <div class="code-container">
+          <ol>
+            <li>
+              result <span class="pink"> = </span> a
+              <span class="pink"> || </span> b;
+            </li>
+          </ol>
+        </div>
+        <p>
+          In classical programming, the logical OR is meant to manipulate
+          boolean values only. If any of its arguments are true, it returns
+          true, otherwise it returns false.
+        </p>
+        <p>
+          If an operand is not a boolean, it’s converted to a boolean for the
+          evaluation.
+        </p>
+        <p>
+          For instance, the number <span class="highlight">1</span> is treated
+          as <span class="highlight">true</span> , the number
+          <span class="highlight">0</span> as
+          <span class="highlight">false</span> :
+        </p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="pink">if</span> ( <span class="purple">1</span>
+              <span class="pink"> || </span> <span class="purple">0</span> ) {
+              <span class="comment"
+                >// works just like if( true || false )</span
+              >
+            </li>
+            <li>
+              &nbsp; &nbsp; <span class="blue">alert</span> (<span
+                class="yellow"
+                >'truthy!'</span
+              >
+              );
+            </li>
+            <li>}</li>
+          </ol>
+        </div>
+        <h2>OR "||" finds the first truthy value</h2>
+        <p>
+          The logic described above is somewhat classical. Now, let’s bring in
+          the “extra” features of JavaScript.
+        </p>
+        <p>The extended algorithm works as follows.</p>
+        <p>Given multiple OR’ed values:</p>
+        <div class="code-container">
+          <ol>
+            <li>
+              result <span class="pink"> = </span> value1
+              <span class="pink">|| </span> value2
+              <span class="pink">|| </span> value3 ;
+            </li>
+          </ol>
+        </div>
+        <p>
+          The OR <span class="highlight">||</span> operator does the following:
+        </p>
+        <ul>
+          <li>Evaluates operands from left to right.</li>
+          <li>
+            For each operand, converts it to boolean. If the result is true,
+            stops and returns the original value of that operand.
+          </li>
+          <li>
+            If all operands have been evaluated (i.e. all were false), returns
+            the last operand.
+          </li>
+        </ul>
+        <p>A value is returned in its original form, without the conversion.</p>
+        <p>
+          In other words, a chain of OR || returns the first truthy value or the
+          last one if no truthy value is found.
+        </p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="blue">alert</span> ( <span class="purple">1 </span>
+              <span class="pink">|| </span> <span class="purple">0 </span> ) ;
+              <span class="comment">// 1 (1 is truthy)</span>
+            </li>
+            <li></li>
+            <li>
+              <span class="blue">alert</span> ( <span class="pink">null </span>
+              <span class="pink">|| </span> <span class="purple">1 </span> ) ;
+              <span class="comment">// 1 (1 is the first truthy value)</span>
+            </li>
+            <li>
+              <span class="blue">alert</span> ( <span class="pink">null </span>
+              <span class="pink">|| </span> <span class="purple">0 </span>
+              <span class="pink">|| </span> <span class="purple">1 </span> ) ;
+              <span class="comment">// 1 (the first truthy value)</span>
+            </li>
+            <li></li>
+            <li>
+              <span class="blue">alert</span> (
+              <span class="pink">undefined </span>
+              <span class="pink">|| </span> <span class="pink">null </span>
+              <span class="pink">|| </span> <span class="purple"> 0 </span> ) ;
+              <span class="comment"
+                >// 0 (all falsy, returns the last value)</span
+              >
+            </li>
+          </ol>
+        </div>
+        <p>
+          Getting the first truthy value from a list of variables or
+          expressions.
+        </p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="pink">let </span> firstName
+              <span class="pink"> = </span> "";
+            </li>
+            <li>
+              <span class="pink">let </span> lastName
+              <span class="pink"> = </span> "";
+            </li>
+            <li>
+              <span class="pink">let </span> nickName
+              <span class="pink"> = </span> "SuperCoder";
+            </li>
+            <li></li>
+            <li>
+              <span class="blue">alert</span> ( firstName
+              <span class="pink">||</span> firstName
+              <span class="pink">||</span>lastName
+              <span class="pink">||</span> nickName
+              <span class="pink">||</span>
+              <span class="yellow">"Anonymous"</span> );
+              <span class="comment">// SuperCoder</span>
+            </li>
+          </ol>
+        </div>
+        <p>
+          If all variables were falsy,
+          <span class="highlight">"Anonymous"</span> would show up.
+        </p>
       </div>
     </div>
 
