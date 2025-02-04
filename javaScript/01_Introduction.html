@@ -1825,6 +1825,246 @@
           If all variables were falsy,
           <span class="highlight">"Anonymous"</span> would show up.
         </p>
+        <h2>&& (AND)</h2>
+        <p>The AND operator is represented with two ampersands &&:</p>
+        <div class="code-container">
+          <ol>
+            <li>
+              result <span class="pink"> = </span> a
+              <span class="pink">&&</span> b;
+            </li>
+          </ol>
+        </div>
+        <h2>AND “&&” finds the first falsy value</h2>
+        <p>Given multiple AND’ed values:</p>
+        <div class="code-container">
+          <ol>
+            <li>
+              result <span class="pink"> = </span> value1
+              <span class="pink">&&</span> value2
+              <span class="pink">&&</span> value3;
+            </li>
+          </ol>
+        </div>
+        <p>The AND && operator does the following:</p>
+        <ul>
+          <li>Evaluates operands from left to right.</li>
+          <li>
+            For each operand, converts it to a boolean. If the result is false,
+            stops and returns the original value of that operand.
+          </li>
+          <li>
+            If all operands have been evaluated (i.e. all were truthy), returns
+            the last operand.
+          </li>
+        </ul>
+        <p>
+          In other words, AND returns the first falsy value or the last value if
+          none were found.
+        </p>
+        <p>
+          The rules above are similar to OR. The difference is that AND returns
+          the first falsy value while OR returns the first truthy one.
+        </p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="comment">// if the first operand is truthy,</span>
+            </li>
+            <li>
+              <span class="comment">// AND returns the second operand: </span>
+            </li>
+            <li>
+              <span class="blue">alert</span> ( <span class="purple">1</span>
+              <span class="pink">&&</span> <span class="purple">0</span> );
+              <span class="comment">// 0</span>
+            </li>
+            <li>
+              <span class="blue">alert</span> ( <span class="purple">1</span>
+              <span class="pink">&&</span> <span class="purple">5</span> );
+              <span class="comment">// 5</span>
+            </li>
+            <li></li>
+            <li>
+              <span class="comment">// if the first operand is falsy,</span>
+            </li>
+            <li>
+              <span class="comment"
+                >// AND returns it. The second operand is ignored
+              </span>
+            </li>
+            <li>
+              <span class="blue">alert</span> ( <span class="pink">null</span>
+              <span class="pink">&&</span> <span class="purple">5</span> );
+              <span class="comment">// null</span>
+            </li>
+            <li>
+              <span class="blue">alert</span> ( <span class="purple">0</span>
+              <span class="pink">&&</span>
+              <span class="yellow">"no matter what"</span> );
+              <span class="comment">// 0</span>
+            </li>
+          </ol>
+        </div>
+        <p>
+          We can also pass several values in a row. See how the first falsy one
+          is returned:
+        </p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="blue">alert</span> ( <span class="purple">1</span>
+              <span class="pink">&&</span> <span class="purple">2</span>
+              <span class="pink">&&</span> <span class="pink">null</span>
+              <span class="pink">&&</span> <span class="purple">3</span>);
+              <span class="comment">// null</span>
+            </li>
+          </ol>
+        </div>
+        <p>When all values are truthy, the last value is returned:</p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="blue">alert</span> ( <span class="purple">1</span>
+              <span class="pink">&&</span> <span class="purple">2</span>
+              <span class="pink">&&</span> <span class="purple">3</span>
+              );
+              <span class="comment">// 3, the last one</span>
+            </li>
+          </ol>
+        </div>
+        <h2>! (NOT)</h2>
+        <p>
+          The boolean NOT operator is represented with an exclamation sign
+          <span class="highlight">!</span>.
+        </p>
+        <p>The syntax is pretty simple:</p>
+        <div class="code-container">
+          <ol>
+            <li>result <span class="pink"> = !</span> value;</li>
+          </ol>
+        </div>
+        <p>The operator accepts a single argument and does the following:</p>
+        <ol>
+          <li>Converts the operand to boolean type: true/false.</li>
+          <li>Returns the inverse value.</li>
+        </ol>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="blue">alert</span> ( <span class="pink">!</span>true
+              ); <span class="comment">//false</span>
+            </li>
+            <li>
+              <span class="blue">alert</span> ( <span class="pink">!</span
+              ><span class="purple">0</span> );
+              <span class="comment">//true</span>
+            </li>
+          </ol>
+        </div>
+        <p>
+          A double NOT <span class="highlight">!!</span> is sometimes used for
+          converting a value to boolean type:
+        </p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="blue">alert</span> (
+              <span class="pink">!!</span>"non-empty string" );
+              <span class="comment">//true</span>
+            </li>
+            <li>
+              <span class="blue">alert</span> ( <span class="pink">!!</span
+              ><span class="purple">null</span> );
+              <span class="comment">//false</span>
+            </li>
+          </ol>
+        </div>
+        <h1>Nullish coalescing operator '??'</h1>
+        <p>
+          As it treats <span class="highlight">null</span> and
+          <span class="highlight">undefined</span> similarly, we’ll use a
+          special term here, in this article. For brevity, we’ll say that a
+          value is “defined” when it’s neither
+          <span class="highlight">null</span> nor
+          <span class="highlight">undefined</span> .
+        </p>
+        <p>The result of a <span class="highlight">??</span> b is:</p>
+        <ul>
+          <li>
+            if <span class="highlight">a</span> is defined, then
+            <span class="highlight">a</span> ,
+          </li>
+          <li>
+            if <span class="highlight">a</span> isn't defined, then
+            <span class="highlight">b</span> ,
+          </li>
+        </ul>
+        <p>
+          In other words, <span class="highlight">??</span> returns the first
+          argument if it’s not <span class="highlight">null/undefined</span>.
+          Otherwise, the second one.
+        </p>
+        <p>
+          The common use case for <span class="highlight">??</span> is to
+          provide a default value.
+        </p>
+        <div class="code-container">
+          <ol>
+            <li><span class="pink">let</span> user1;</li>
+            <li>
+              <span class="blue">alert</span>( user1 ??
+              <span class="yellow">"Anonymous"</span> );
+              <span class="comment">// Anonymous (user is undefined) </span>
+            </li>
+            <li></li>
+            <li class="comment">
+              // Here’s the example with user assigned to a name:
+            </li>
+            <li>
+              <span class="pink">let</span> user2 <span class="pink"> = </span>
+              <span class="yellow">"John"</span>;
+            </li>
+            <li>
+              <span class="blue">alert</span>( user2
+              <span class="pink">??</span>
+              <span class="yellow">"Anonymous"</span> );
+              <span class="comment">// John (user is not null/undefined)</span>
+            </li>
+          </ol>
+        </div>
+        <p>
+          The important difference between <span class="highlight">??</span> and
+          <span class="highlight"> ||</span> is that:
+        </p>
+        <ul>
+          <li>
+            <span class="highlight">||</span> returns the first truthy value.
+          </li>
+          <li>
+            <span class="highlight">??</span> returns the first defined value.
+          </li>
+        </ul>
+        <p>For example, consider this:</p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="pink">let</span> height
+              <span class="pink"> = </span> <span class="purple"> 0</span> ;
+            </li>
+            <li></li>
+            <li>
+              <span class="blue">alert</span> ( height
+              <span class="pink">||</span> <span class="purple">100</span> );
+              <span class="comment">// 100</span>
+            </li>
+            <li>
+              <span class="blue">alert</span> ( height
+              <span class="pink">??</span> <span class="purple">100</span> );
+              <span class="comment">// 0</span>
+            </li>
+          </ol>
+        </div>
       </div>
     </div>
 
