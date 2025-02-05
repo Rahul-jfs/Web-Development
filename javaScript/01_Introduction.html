@@ -2065,6 +2065,86 @@
             </li>
           </ol>
         </div>
+        <h1 id="functions">Functions</h1>
+        <p>
+          Functions are the main “building blocks” of the program. They allow
+          the code to be called many times without repetition.
+        </p>
+        <h2>Function Declaration</h2>
+        <p>To create a function we can use a function declaration.</p>
+        <p>It looks like this:</p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="pink">function </span>
+              <span class="blue">showMessage</span> () {
+            </li>
+            <li>
+              &nbsp; &nbsp; <span class="blue">alert</span> (
+              <span class="yellow">"Hello everyone!"</span> );
+            </li>
+            <li>}</li>
+          </ol>
+        </div>
+        <p>
+          The <span class="highlight">function</span> keyword goes first, then
+          goes the name of the function, then a list of parameters between the
+          parentheses (comma-separated, empty in the example above, we’ll see
+          examples later) and finally the code of the function, also named “the
+          function body”, between curly braces.
+        </p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="pink">function </span>
+              <span class="blue">name</span> (parameter1, parameter2,
+              parameter3, <span class="pink">...</span> , parameterN ) {
+            </li>
+            <li>&nbsp; &nbsp; <span class="comment"> // body</span></li>
+            <li>}</li>
+          </ol>
+        </div>
+        <p>
+          Our new function can be called by its name:
+          <span class="highlight">showMessage()</span>.
+        </p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="pink">function </span>
+              <span class="blue">showMessage</span> () {
+            </li>
+            <li>
+              &nbsp; &nbsp; <span class="blue">alert</span> (
+              <span class="yellow">"Hello everyone!"</span> );
+            </li>
+            <li>}</li>
+            <li></li>
+            <li><span class="blue">showMessage</span>();</li>
+            <li><span class="blue">showMessage</span>();</li>
+          </ol>
+        </div>
+        <h2>Local variables</h2>
+        <p>
+          A variable declared inside a function is only visible inside that
+          function.
+        </p>
+        <h2>Outer variables</h2>
+        <p>A function can access an outer variable as well.</p>
+        <p>
+          The function has full access to the outer variable. It can modify it
+          as well.
+        </p>
+        <p>The outer variable is only used if there’s no local one.</p>
+        <p>
+          If a same-named variable is declared inside the function then it
+          shadows the outer one. The outer one is ignored.
+        </p>
+        <h2>Returning a value</h2>
+        <p>
+          A function can return a value back into the calling code as the
+          result.
+        </p>
       </div>
     </div>
 
