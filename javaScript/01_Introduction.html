@@ -2163,6 +2163,89 @@
             <li>}</li>
           </ol>
         </div>
+        <p>
+          There is another syntax for creating a function that is called a
+          Function Expression.
+        </p>
+        <p>
+          It allows us to create a new function in the middle of any expression.
+        </p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="pink">let </span> <span class="blue">sayHi</span>
+              <span class="pink">= function </span>
+              () {
+            </li>
+            <li>
+              &nbsp;&nbsp; <span class="blue">alert</span>(
+              <span class="yellow">"Hello"</span> );
+            </li>
+            <li>}</li>
+          </ol>
+        </div>
+        <p>
+          Here we can see a variable
+          <span class="highlight">sayHi</span> getting a value, the new
+          function, created as
+          <span class="highlight">function() { alert("Hello"); }.</span>
+        </p>
+        <p>
+          Please note, there’s no name after the function keyword. Omitting a
+          name is allowed for Function Expressions.
+        </p>
+        <h2>Function is a value</h2>
+        <p>
+          Let’s reiterate: no matter how the function is created, a function is
+          a value. Both examples above store a function in the sayHi variable.
+        </p>
+        <p>
+          In JavaScript, a function is a value, so we can deal with it as a
+          value. The code above shows its string representation, which is the
+          source code.
+        </p>
+        <p>
+          Surely, a function is a special value, in the sense that we can call
+          it like sayHi().
+        </p>
+        <p>
+          But it’s still a value. So we can work with it like with other kinds
+          of values.
+        </p>
+        <p>We can copy a function to another variable:</p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="pink">function </span>
+              <span class="blue">sayHi</span>() {
+              <span class="comment">// (1) create</span>
+            </li>
+            <li>
+              &nbsp;&nbsp; <span class="blue">alert</span>(
+              <span class="yellow">"Hello"</span> );
+            </li>
+            <li>}</li>
+            <li></li>
+            <li>
+              <span class="pink">let </span>func
+              <span class="pink"> = </span> sayHi;
+              <span class="comment">// (2) copy</span>
+            </li>
+            <li></li>
+            <li>
+              <span class="blue">func</span>();
+              <span class="comment"
+                >// Hello // (3) run the copy (it works)!</span
+              >
+            </li>
+            <li>
+              <span class="blue">sayHi</span>();
+              <span class="comment"
+                >// Hello // this still works too (why wouldn't it)!</span
+              >
+            </li>
+          </ol>
+        </div>
       </div>
     </div>
 
