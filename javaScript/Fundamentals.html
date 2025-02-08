@@ -66,9 +66,10 @@
         margin: 18px 0;
         font-size: 18px;
       }
-      /* ul {
+      ul {
         margin: 20px;
-      } */
+        padding: 20px 0;
+      }
       li {
         margin: 10px;
         font-size: 18px;
@@ -152,6 +153,7 @@
           <li><a href="#nullish-operators">Nullish Operator</a></li>
           <li><a href="#functions">Functions</a></li>
           <li><a href="#function-expressions">Function Expression</a></li>
+          <li><a href="#arrow-function">Arrow Function</a></li>
         </ul>
       </div>
       <div class="content">
@@ -2246,6 +2248,117 @@
             </li>
           </ol>
         </div>
+        <h1 id="arrow-function">Arrow functions, the basics</h1>
+        <p>
+          There’s another very simple and concise syntax for creating functions,
+          that’s often better than Function Expressions.
+        </p>
+        <p>It’s called “arrow functions”, because it looks like this:</p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="pink">let </span> <span class="blue">func </span>
+              <span class="pink">=</span> (arg1, arg2,
+              <span class="pink">...</span>, argN) => expression;
+            </li>
+          </ol>
+        </div>
+        <p>In other words, it’s the shorter version of:</p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="pink">let </span>
+              <span class="blue">func </span>
+              <span class="pink">= function</span> (arg1, arg2,
+              <span class="pink">...</span>, argN) {
+            </li>
+            <li>&nbsp; &nbsp;<span class="pink">return </span> expression;</li>
+            <li>}</li>
+          </ol>
+        </div>
+        <p>Let’s see a concrete example:</p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="pink">let </span> <span class="blue">blue </span>
+              <span class="pink">=</span> (a, b)
+              <span class="pink"> => </span> a <span class="pink">+</span> b;
+            </li>
+            <li></li>
+            <li>
+              <span class="comment"
+                >/* This arrow function is a shorter form of:</span
+              >
+            </li>
+            <li></li>
+            <li><span class="comment">;et sum = function(a, b) {</span></li>
+            <li><span class="comment">&nbsp; &nbsp; return a+b;</span></li>
+            <li><span class="comment">};</span></li>
+            <li><span class="comment">*/</span></li>
+            <li></li>
+            <li>
+              <span class="blue">alert</span>(
+              <span class="blue">sum</span>(<span class="purple">1</span>,
+              <span class="purple">2</span> ) );
+              <span class="comment">// 3</span>
+            </li>
+          </ol>
+        </div>
+        <p>
+          As you can see, <span class="highlight">(a, b) => a + b</span> means a
+          function that accepts two arguments named
+          <span class="highlight">a</span> and
+          <span class="highlight">b</span> . Upon the execution, it evaluates
+          the expression <span class="highlight">a + b</span> and returns the
+          result.
+        </p>
+        <ul>
+          <li>
+            If we have only one argument, then parentheses around parameters can
+            be omitted, making that even shorter.
+            <p>For Example:</p>
+
+            <div class="code-container">
+              <ol>
+                <li>
+                  <span class="pink">let</span>
+                  <span class="blue">double </span>
+                  <span class="pink"> = </span> n
+                  <span class="pink"> => </span> n <span class="pink">*</span>
+                  <span class="purple">2</span>;
+                </li>
+                <li>
+                  <span class="comment"
+                    >// roughly the same as: let double = function(n) { return n
+                    * 2 }</span
+                  >
+                </li>
+                <li></li>
+                <li>
+                  <span class="alert">alert</span>(
+                  <span class="blue">double</span>(<span class="purple">3</span>
+                  ) ); <span class="comment">// 6</span>
+                </li>
+              </ol>
+            </div>
+          </li>
+          <li>
+            If there are no arguments, parentheses are empty, but they must be
+            present:
+          </li>
+          <div class="code-container">
+            <ol>
+              <li>
+                <span class="pink">let </span> <span class="blue">sayHi</span>
+                <span class="pink"> = </span> () <span class="pink"> => </span>
+                <span class="blue">alert </span>(
+                <span class="yellow">"Hello!"</span> );
+              </li>
+              <li></li>
+              <li><span class="blue">sayHi</span>();</li>
+            </ol>
+          </div>
+        </ul>
       </div>
     </div>
 
