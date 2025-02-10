@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      * {
+        margin: 0;
+        line-height: 25px;
+      }
+      body {
+        background-color: #232529;
+      }
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px 50px 0px 0px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        color: #e2e3e7;
+      }
+      .fixed-container {
+        position: fixed;
+        height: 100vh;
+        overflow-y: scroll;
+        padding: 10px;
+      }
+      .fixed-container ul {
+        list-style: none;
+      }
+
+      .fixed-container ul li {
+        padding: 8px 20px;
+        margin: 10px 0;
+      }
+
+      .fixed-container ul li:hover a {
+        background-color: #84a0ef;
+        color: #232529;
+      }
+
+      .content {
+        padding: 20px 50px;
+      }
+
+      a {
+        color: #e2e3e7;
+        text-decoration: none;
+      }
+
+      h1,
+      h2 {
+        margin: 15px 0;
+        color: #e2e3e7;
+      }
+      p {
+        margin: 18px 0;
+        font-size: 18px;
+      }
+      ul {
+        margin: 20px;
+        padding: 20px 0;
+      }
+      li {
+        margin: 10px;
+        font-size: 18px;
+      }
+      span {
+        color: #84a0ef;
+      }
+
+      .code-container {
+        background-color: #282a36;
+        padding: 18px;
+        border-radius: 10px;
+      }
+
+      .border-box {
+        margin: 20px 0;
+        border-radius: 10px;
+        border: 2px solid #35383f;
+        padding: 20px;
+      }
+
+      ol li {
+        padding-left: 20px;
+      }
+
+      .highlight {
+        background-color: #44475a;
+        color: #868d9a;
+      }
+      .pink {
+        color: #ff79c6;
+      }
+
+      .yellow {
+        color: #faf18c;
+      }
+      .comment {
+        color: #6272a4;
+      }
+
+      .blue {
+        color: #8be9fd;
+      }
+      .purple {
+        color: #bd93f9;
+      }
+
+      .warning {
+        color: #ba5d38;
+        font-size: 22px;
+      }
+
+      .info {
+        color: #2a88b7;
+        font-size: 22px;
+      }
+
+      @media (max-width: 800px) {
+        .fixed-container {
+          display: none;
+        }
+        .content {
+          padding: 20px 0 0 30px;
+          margin-left: 0px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <h1>Object references and copying</h1>
+        <p>
+          One of the fundamental differences of objects versus primitives is
+          that objects are stored and copied “by reference”, whereas primitive
+          values: strings, numbers, booleans, etc – are always copied “as a
+          whole value”.
+        </p>
+        <p>Let’s start with a primitive, such as a string.</p>
+        <p>
+          Here we put a copy of <span class="highlight">message</span> into
+          <span class="highlight">phrase</span>:
+        </p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="pink">let </span> message
+              <span class="pink">=</span> <span class="yellow">"Hello"</span>;
+            </li>
+            <li>
+              <span class="pink">let </span> phrase <span class="pink">=</span>
+              message;
+            </li>
+          </ol>
+        </div>
+        <p>
+          As a result we have two independent variables, each one storing the
+          string <span class="highlight">"Hello!"</span>.
+        </p>
+        <p>Objects are not like that.</p>
+        <p>
+          <b
+            >A variable assigned to an object stores not the object itself, but
+            its “address in memory” – in other words “a reference” to it.</b
+          >
+        </p>
+        <p>
+          <b
+            >When an object variable is copied, the reference is copied, but the
+            object itself is not duplicated.
+          </b>
+        </p>
+        <p>For instance:</p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="pink">let </span> user
+              <span class="pink"> = </span> name <span class="pink">:</span>
+              <span class="yellow">"John"</span> };
+            </li>
+            <li></li>
+            <li>
+              <span class="pink">let</span> admin
+              <span class="pink"> = </span> user;
+            </li>
+          </ol>
+        </div>
+        <p>
+          Now we have two variables, each storing a reference to the same
+          object:
+        </p>
+        <p>
+          As you can see, there’s still one object, but now with two variables
+          that reference it.
+        </p>
+        <p>
+          We can use either variable to access the object and modify its
+          contents:
+        </p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="pink">let </span> user
+              <span class="pink"> = </span> name <span class="pink">:</span>
+              <span class="yellow">"John"</span> };
+            </li>
+            <li></li>
+            <li>
+              <span class="pink">let</span> admin
+              <span class="pink"> = </span> user;
+            </li>
+            <li></li>
+            <li>
+              admin.name <span class="pink"> = </span>
+              <span class="yellow">"Pete"</span>;
+              <span class="comment">// changed by the "admin" reference</span>
+            </li>
+            <li></li>
+            <li>
+              <span class="blue">alert</span>(user.name);
+              <span class="comment"
+                >// 'Pete', changes are seen from the "user" reference</span
+              >
+            </li>
+          </ol>
+        </div>
+        <h2>Comparison by reference</h2>
+        <p>Two objects are equal only if they are the same object.</p>
+        <p>
+          For instance, here <span class="highlight">a</span> and
+          <span class="highlight">b</span> reference the same object, thus they
+          are equal:
+        </p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="pink">let</span> a <span class="pink"> = </span> {};
+            </li>
+            <li>
+              <span class="pink">let</span> b <span class="pink"> = </span> a;
+              <span class="comment">// copy the reference</span>
+            </li>
+            <li></li>
+            <li>
+              <span class="blue">alert</span>(a <span class="pink">==</span> b);
+              <span class="comment"
+                >// true, both variables reference the same object</span
+              >
+            </li>
+          </ol>
+        </div>
+        <p>
+          And here two independent objects are not equal, even though they look
+          alike (both are empty):
+        </p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="pink">let</span> a <span class="pink"> = </span> {};
+            </li>
+            <li>
+              <span class="pink">let</span> b <span class="pink"> = </span> {};
+              <span class="comment">// two independent objects</span>
+            </li>
+            <li></li>
+            <li>
+              <span class="blue">alert</span>(a <span class="pink">==</span> b);
+              <span class="comment">// false</span>
+            </li>
+          </ol>
+        </div>
+        <h2>Cloning and merging, Object.assign</h2>
+        <p>
+          So, copying an object variable creates one more reference to the same
+          object.
+        </p>
+        <p>But what if we need to duplicate an object?</p>
+        <p>
+          We can create a new object and replicate the structure of the existing
+          one, by iterating over its properties and copying them on the
+          primitive level.
+        </p>
+        <p>
+          We can also use the method <span class="blue">Object.assign</span>.
+        </p>
+        <p>The syntax is:</p>
+        <div class="code-container">
+          <ol>
+            <li>Object.<span class="blue">assign</span>(dest, ...sources);</li>
+          </ol>
+        </div>
+        <ul>
+          <li>The first argument dest is a target object.</li>
+          <li>Further arguments is a list of source objects.</li>
+        </ul>
+        <p>
+          It copies the properties of all source objects into the target dest,
+          and then returns it as the result.
+        </p>
+        <p>
+          For example, we have user object, let’s add a couple of permissions to
+          it:
+        </p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="pink">let </span> user
+              <span class="pink"> = </span> name <span class="pink">: </span>
+              <span class="yellow">"John"</span> ;
+            </li>
+            <li></li>
+            <li>
+              <span class="pink">let</span> permissions1
+              <span class="pink"> = </span> { canView
+              <span class="pink">: </span> true } ;
+            </li>
+            <li>
+              <span class="pink">let</span> permissions2
+              <span class="pink"> = </span> { canEdit
+              <span class="pink">: </span> true } ;
+            </li>
+            <li></li>
+            <li>
+              <span class="comment"
+                >// copies all properties from permissions1 and permissions2
+                into user</span
+              >
+            </li>
+            <li>
+              Object.<span class="blue">alert</span>(user, permissions1,
+              permissions2);
+            </li>
+            <li></li>
+            <li>
+              <span class="comment"
+                >// now user = { name: "John", canView: true, canEdit: true
+                }</span
+              >
+            </li>
+            <li>
+              <span class="blue">alert</span>(user.name);
+              <span class="comment">// John</span>
+            </li>
+            <li>
+              <span class="blue">alert</span>(user.canView);
+              <span class="comment">//true</span>
+            </li>
+            <li>
+              <span class="blue">alert</span>(user.canEdit);
+              <span class="comment">//true</span>
+            </li>
+          </ol>
+        </div>
+        <p>If the copied property name already exists, it gets overwritten:</p>
+        <h2>Nested cloning</h2>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="pink">let</span> user <span class="pink"> = </span> {
+            </li>
+            <li>&nbsp;&nbsp; name: <span class="yellow">"John",</span></li>
+            <li>&nbsp;&nbsp; size: {<span class="yellow">"John",</span></li>
+            <li>
+              &nbsp;&nbsp;&nbsp;&nbsp; height: <span class="purple">182</span>
+            </li>
+            <li>
+              &nbsp;&nbsp;&nbsp;&nbsp; width: <span class="purple">50</span>
+            </li>
+            <li>&nbsp;&nbsp;}</li>
+            <li>};</li>
+            <li></li>
+            <li>
+              <span class="blue">alert</span>( user.size.height);
+              <span class="comment">//182</span>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
