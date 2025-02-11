@@ -367,7 +367,7 @@
               <span class="pink">let</span> user <span class="pink"> = </span> {
             </li>
             <li>&nbsp;&nbsp; name: <span class="yellow">"John",</span></li>
-            <li>&nbsp;&nbsp; size: {<span class="yellow">"John",</span></li>
+            <li>&nbsp;&nbsp; sizes: {<span class="yellow">"John",</span></li>
             <li>
               &nbsp;&nbsp;&nbsp;&nbsp; height: <span class="purple">182</span>
             </li>
@@ -378,11 +378,100 @@
             <li>};</li>
             <li></li>
             <li>
-              <span class="blue">alert</span>( user.size.height);
+              <span class="blue">alert</span>( user.sizes.height);
               <span class="comment">//182</span>
             </li>
           </ol>
         </div>
+        <p>
+          Now it’s not enough to copy
+          <span class="highlight">clone.sizes = user.sizes</span>, because
+          <span class="highlight">user.sizes</span> is an object, and will be
+          copied by reference, so <span class="highlight">clone</span> and
+          <span class="highlight">user</span> will share the same sizes:
+        </p>
+      </div>
+      <div class="code-container">
+        <ol>
+          <li>
+            <span class="pink">let</span> user <span class="pink"> = </span> {
+          </li>
+          <li>&nbsp;&nbsp; name: <span class="yellow">"John",</span></li>
+          <li>&nbsp;&nbsp; sizes: {<span class="yellow">"John",</span></li>
+          <li>
+            &nbsp;&nbsp;&nbsp;&nbsp; height: <span class="purple">182</span>
+          </li>
+          <li>
+            &nbsp;&nbsp;&nbsp;&nbsp; width: <span class="purple">50</span>
+          </li>
+          <li>&nbsp;&nbsp;}</li>
+          <li>};</li>
+          <li></li>
+          <li>
+            <span class="pink">let </span> clone
+            <span class="pink"> = </span> Object.<span class="blue">assign</span
+            >({}, user);
+          </li>
+          <li></li>
+          <li>
+            <span class="blue">alert</span>( user.sizes
+            <span class="pink"> === </span> clone.sizes );
+            <span class="comment">// true, same object</span>
+          </li>
+          <li>
+            user.sizes.width <span class="pink">=</span>
+            <span class="purple">60</span>;
+            <span class="comment">// change a property from one place</span>
+          </li>
+          <li>
+            <span class="blue">alert</span>(clone.sizes.width);
+            <span class="comment"
+              >// 60, get the result from the other one</span
+            >
+          </li>
+        </ol>
+      </div>
+      <h2>structuredClone</h2>
+      <p>
+        The call <span class="highlight">structuredClone(object)</span> clones
+        the <span class="highlight">object</span> with all nested properties.
+      </p>
+      <div class="code-container">
+        <ol>
+          <li>
+            <span class="pink">let</span> user <span class="pink"> = </span> {
+          </li>
+          <li>&nbsp;&nbsp; name: <span class="yellow">"John",</span></li>
+          <li>&nbsp;&nbsp; sizes: {<span class="yellow">"John",</span></li>
+          <li>
+            &nbsp;&nbsp;&nbsp;&nbsp; height: <span class="purple">182</span>
+          </li>
+          <li>
+            &nbsp;&nbsp;&nbsp;&nbsp; width: <span class="purple">50</span>
+          </li>
+          <li>&nbsp;&nbsp;}</li>
+          <li>};</li>
+          <li></li>
+          <li>
+            <span class="pink">let </span> clone <span class="pink"> = </span>
+            <span class="blue">structuredClone</span>(user);
+          </li>
+          <li></li>
+          <li>
+            <span class="blue">alert</span>( user.sizes
+            <span class="pink"> === </span> clone.sizes );
+            <span class="comment">// false, different objects</span>
+          </li>
+          <li>
+            user.sizes.width <span class="pink">=</span>
+            <span class="purple">60</span>;
+            <span class="comment">// change a property from one place</span>
+          </li>
+          <li>
+            <span class="blue">alert</span>(clone.sizes.width);
+            <span class="comment">// 50, not related</span>
+          </li>
+        </ol>
       </div>
     </div>
   </body>
