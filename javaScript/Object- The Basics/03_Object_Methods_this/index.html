@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Object Methods and this</title>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      * {
+        margin: 0;
+        line-height: 25px;
+      }
+      body {
+        background-color: #232529;
+      }
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px 50px 0px 0px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        color: #e2e3e7;
+      }
+      .fixed-container {
+        position: fixed;
+        height: 100vh;
+        overflow-y: scroll;
+        padding: 10px;
+      }
+      .fixed-container ul {
+        list-style: none;
+      }
+
+      .fixed-container ul li {
+        padding: 8px 20px;
+        margin: 10px 0;
+      }
+
+      .fixed-container ul li:hover a {
+        background-color: #84a0ef;
+        color: #232529;
+      }
+
+      .content {
+        padding: 20px 50px;
+      }
+
+      a {
+        color: #e2e3e7;
+        text-decoration: none;
+      }
+
+      h1,
+      h2 {
+        margin: 15px 0;
+        color: #e2e3e7;
+      }
+      p {
+        margin: 18px 0;
+        font-size: 18px;
+      }
+      ul {
+        margin: 20px;
+        padding: 20px 0;
+      }
+      li {
+        margin: 10px;
+        font-size: 18px;
+      }
+      span {
+        color: #84a0ef;
+      }
+
+      .code-container {
+        background-color: #282a36;
+        padding: 18px;
+        border-radius: 10px;
+      }
+
+      .border-box {
+        margin: 20px 0;
+        border-radius: 10px;
+        border: 2px solid #35383f;
+        padding: 20px;
+      }
+
+      ol li {
+        padding-left: 20px;
+      }
+
+      .highlight {
+        background-color: #44475a;
+        color: #868d9a;
+      }
+      .pink {
+        color: #ff79c6;
+      }
+
+      .yellow {
+        color: #faf18c;
+      }
+      .comment {
+        color: #6272a4;
+      }
+
+      .blue {
+        color: #8be9fd;
+      }
+      .purple {
+        color: #bd93f9;
+      }
+
+      .warning {
+        color: #ba5d38;
+        font-size: 22px;
+      }
+
+      .info {
+        color: #2a88b7;
+        font-size: 22px;
+      }
+
+      @media (max-width: 800px) {
+        .fixed-container {
+          display: none;
+        }
+        .content {
+          padding: 20px 0 0 30px;
+          margin-left: 0px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <h1>Object methods, "this"</h1>
+        <h2>Method examples</h2>
+        <p>For a start, let’s teach the user to say hello:</p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="pink">let </span> user
+              <span class="pink"> = </span> {
+            </li>
+            <li>
+              &nbsp;&nbsp; name <span class="pink"> : </span>
+              <span class="yellow">"John"</span>,
+            </li>
+            <li>
+              &nbsp;&nbsp; age <span class="pink"> : </span>
+              <span class="purple">30</span>,
+            </li>
+            <li>};</li>
+            <li></li>
+            <li>
+              user.<span class="blue">sayHi</span
+              ><span class="pink"> = function</span>() {
+            </li>
+            <li>
+              &nbsp;&nbsp;<span class="blue">alert</span>(<span class="yellow"
+                >"Hello!"</span
+              >
+              );
+            </li>
+            <li>};</li>
+            <li></li>
+            <li>
+              user.<span class="blue">sayHi</span>();
+              <span class="comment">//Hello!</span>
+            </li>
+          </ol>
+        </div>
+        <p>
+          Here we’ve just used a Function Expression to create a function and
+          assign it to the property user.sayHi of the object.
+        </p>
+        <p>
+          Then we can call it as <span class="highlight">user.sayHi()</span>.
+          The user can now speak!
+        </p>
+        <p>A function that is a property of an object is called its method.</p>
+        <h2>Method shorthand</h2>
+        <p>There exists a shorter syntax for methods in an object literal:</p>
+        <div class="code-container">
+          <ol>
+            <li><span class="comment">// these objects do the same </span></li>
+            <li></li>
+            <li>user <span class="pink"> = </span> {</li>
+            <li>&nbsp;&nbsp;sayHi <span class="pink">: function</span>() {</li>
+            <li>
+              &nbsp;&nbsp;&nbsp;&nbsp; <span class="blue">alert</span>(<span
+                class="yellow"
+                >"Hello!"</span
+              >);
+            </li>
+            <li>&nbsp;&nbsp;}</li>
+            <li>};</li>
+            <li></li>
+            <li>
+              <span class="comment"
+                >// method shorthand looks better, right?</span
+              >
+            </li>
+            <li>user <span class="pink"> = </span> {</li>
+            <li>
+              &nbsp;&nbsp; <span class="blue">sayHi</span>() {
+              <span class="comment">// same as "sayHi: function(){...}"</span>
+            </li>
+            <li>
+              &nbsp;&nbsp;&nbsp;&nbsp; <span class="blue">alert</span>(<span
+                class="yellow"
+                >"Hello!"</span
+              >
+              );
+            </li>
+            <li>&nbsp;&nbsp; }</li>
+            <li>};</li>
+          </ol>
+        </div>
+        <p>
+          As demonstrated, we can omit
+          <span class="highlight">"function"</span> and just write
+          <span class="highlight">sayHi()</span>.
+        </p>
+        <h2>“this” in methods</h2>
+        <p>
+          It’s common that an object method needs to access the information
+          stored in the object to do its job.
+        </p>
+        <p>
+          For instance, the code inside
+          <span class="highlight">user.sayHi()</span> may need the name of the
+          <span class="highlight">user</span>.
+        </p>
+        <p>
+          <b
+            >To access the object, a method can use the
+            <span class="highlight">this</span> keyword.
+          </b>
+        </p>
+        <p>
+          The value of <span class="highlight">this</span> is the object “before
+          dot”, the one used to call the method.
+        </p>
+        <p>For instance:</p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="pink">let </span> user
+              <span class="pink"> = </span> {
+            </li>
+            <li>
+              &nbsp;&nbsp; name <span class="pink"> : </span>
+              <span class="yellow">"John"</span>,
+            </li>
+            <li>
+              &nbsp;&nbsp; age <span class="pink"> : </span>
+              <span class="purple">30</span>,
+            </li>
+            <li></li>
+            <li>&nbsp;&nbsp;<span class="blue">sayHi</span>() {</li>
+            <li>
+              &nbsp;&nbsp; &nbsp;&nbsp;<span class="comment"
+                >// "this" is the "current object"</span
+              >
+            </li>
+            <li>
+              &nbsp;&nbsp; &nbsp;&nbsp;<span class="blue">alert</span>(<span
+                class="pink"
+                >this</span
+              >.name );
+            </li>
+            <li>&nbsp;&nbsp;}</li>
+            <li>};</li>
+            <li>
+              user.<span class="blue">sayHi</span>();
+              <span class="comment">// John!</span>
+            </li>
+          </ol>
+        </div>
+        <p>
+          Here during the execution of
+          <span class="highlight">user.sayHi()</span>, the value of
+          <span class="highlight">this</span> will be
+          <span class="highlight">user</span>.
+        </p>
+        <p>
+          Technically, it’s also possible to access the object without this, by
+          referencing it via the outer variable:
+        </p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="pink">let </span> user
+              <span class="pink"> = </span> {
+            </li>
+            <li>
+              &nbsp;&nbsp; name <span class="pink"> : </span>
+              <span class="yellow">"John"</span>,
+            </li>
+            <li>
+              &nbsp;&nbsp; age <span class="pink"> : </span>
+              <span class="purple">30</span>,
+            </li>
+            <li></li>
+            <li>&nbsp;&nbsp;<span class="blue">sayHi</span>() {</li>
+            <li>
+              &nbsp;&nbsp; &nbsp;&nbsp;<span class="comment"
+                >// "this" is the "current object"</span
+              >
+            </li>
+            <li>
+              &nbsp;&nbsp; &nbsp;&nbsp;<span class="blue">alert</span>(user.name
+              ); <span class="comment">// "user" instead of "this"</span>
+            </li>
+            <li>&nbsp;&nbsp;}</li>
+            <li>};</li>
+          </ol>
+        </div>
+        <p>
+          …But such code is unreliable. If we decide to copy
+          <span class="highlight">user</span> to another variable, e.g.
+          <span class="highlight">admin = user</span> and overwrite
+          <span class="highlight">user</span> with something else, then it will
+          access the wrong object.
+        </p>
+        <p>That’s demonstrated below:</p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="pink">let </span> user
+              <span class="pink"> = </span> {
+            </li>
+            <li>
+              &nbsp;&nbsp; name <span class="pink"> : </span>
+              <span class="yellow">"John"</span>,
+            </li>
+            <li>
+              &nbsp;&nbsp; age <span class="pink"> : </span>
+              <span class="purple">30</span>,
+            </li>
+            <li></li>
+            <li>&nbsp;&nbsp;<span class="blue">sayHi</span>() {</li>
+            <li>
+              &nbsp;&nbsp; &nbsp;&nbsp;<span class="comment"
+                >// "this" is the "current object"</span
+              >
+            </li>
+            <li>
+              &nbsp;&nbsp; &nbsp;&nbsp;<span class="blue">alert</span>(user.name
+              ); <span class="comment">// "user" instead of "this"</span>
+            </li>
+            <li>&nbsp;&nbsp;}</li>
+            <li>};</li>
+            <li></li>
+            <li>
+              <span class="pink">let </span> admin
+              <span class="pink">=</span> user;
+            </li>
+            <li>
+              user <span class="pink"> = null</span>;
+              <span class="comment">// overwrite to make things obvious</span>
+            </li>
+            <li></li>
+            <li>
+              admin.<span class="blue">sayHi</span>();
+              <span class="comment"
+                >// TypeError: Cannot read property 'name' of null</span
+              >
+            </li>
+          </ol>
+        </div>
+        <p>
+          If we used <span class="highlight">this.name</span> instead of
+          <span class="highlight">user.name</span> inside the
+          <span class="highlight">alert</span>, then the code would work.
+        </p>
+        <h2>“this” is not bound</h2>
+        <p>
+          The value of <span class="highlight">this</span> is evaluated during
+          the run-time, depending on the context.
+        </p>
+        <p>
+          For instance, here the same function is assigned to two different
+          objects and has different “this” in the calls:
+        </p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="pink">let </span> user
+              <span class="pink"> = </span> name <span class="pink">:</span>
+              <span class="yellow">"John"</span> };
+            </li>
+            <li>
+              <span class="pink">let </span> admin
+              <span class="pink"> = </span> name <span class="pink">:</span>
+              <span class="yellow">"Admin"</span> };
+            </li>
+            <li>
+              <span class="pink">function </span>
+              <span class="blue">sayHi</span>() {
+            </li>
+            <li>&nbsp;&nbsp;<span class="blue">alert</span>(this.name);</li>
+            <li>}</li>
+            <li></li>
+            <li>
+              <span class="comment"
+                >// use the same function in two objects
+              </span>
+            </li>
+            <li>user.f <span class="pink"> = </span> sayHi;</li>
+            <li>admin.f <span class="pink"> = </span> sayHi;</li>
+            <li></li>
+            <li>
+              user.<span class="blue"
+                >f(); <span class="comment">// John (this == user)</span>
+              </span>
+            </li>
+            <li>
+              admin.<span class="blue"
+                >f(); <span class="comment">// Admin (this == admin)</span>
+              </span>
+            </li>
+          </ol>
+        </div>
+        <h2>Arrow functions have no “this”</h2>
+        <p>
+          Arrow functions are special: they don’t have their “own” this. If we
+          reference this from such a function, it’s taken from the outer
+          “normal” function.
+        </p>
+        <p>
+          For instance, here <span class="highlight">arrow()</span> uses this
+          from the outer <span class="highlight">user.sayHi()</span> method:
+        </p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="pink">let </span> user <span class="pink"> =</span> {
+            </li>
+            <li>
+              &nbsp;&nbsp;firstname <span class="pink">: </span
+              ><span class="yellow">"John"</span>
+            </li>
+            <li>&nbsp;&nbsp; <span class="blue">sayHi</span>() {</li>
+            <li>
+              &nbsp;&nbsp; &nbsp;&nbsp; <span class="pink">let</span>
+              <span class="blue">arrow </span> <span class="pink"> = </span> ()
+              <span class="pink">=></span> <span class="blue">alert</span>(<span
+                class="pink"
+                >this</span
+              >.firstname);
+            </li>
+            <li>
+              &nbsp;&nbsp; &nbsp;&nbsp; <span class="blue">alert</span>();
+            </li>
+            <li>&nbsp;&nbsp; }</li>
+            <li>};</li>
+            <li></li>
+            <li>
+              user.<span class="blue">sayHi</span>();
+              <span class="comment">// John</span>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
