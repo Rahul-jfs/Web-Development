@@ -262,6 +262,139 @@
             <li>};</li>
           </ol>
         </div>
+        <p>
+          Now if we want to create other users, we can call
+          <span class="highlight">new User("Ann")</span>,
+          <span class="highlight">new User("Alice")</span> and so on. Much
+          shorter than using literals every time, and also easy to read.
+        </p>
+        <p>
+          That’s the main purpose of constructors – to implement reusable object
+          creation code.
+        </p>
+        <h2>Return from constructors</h2>
+        <p>
+          Usually, constructors do not have a
+          <span class="highlight">return</span> statement. Their task is to
+          write all necessary stuff into <span class="highlight">this</span>,
+          and it automatically becomes the result.
+        </p>
+        <p>
+          But if there is a <span class="highlight">return</span> statement,
+          then the rule is simple:
+        </p>
+        <ul>
+          <li>
+            If <span class="highlight">return</span> is called with an object,
+            then the object is returned instead of
+            <span class="highlight">this</span>.
+          </li>
+          <li>
+            If <span class="highlight">return</span> is called with a primitive,
+            it’s ignored.
+          </li>
+        </ul>
+        <p>
+          In other words, <span class="highlight">return</span> with an object
+          returns that object, in all other cases
+          <span class="highlight">this</span> is returned.
+        </p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="pink">function </span>
+              <span class="blue">BigUser</span>(){
+            </li>
+            <li>
+              &nbsp;&nbsp;<span class="pink">this</span>.name
+              <span class="pink">=</span> <span class="yellow">"John"</span>
+            </li>
+            <li>
+              <span class="pink">return </span> { name :
+              <span class="yellow">"Godzilla"</span> };
+              <span class="comment">// returns this object</span>
+            </li>
+            <li>}</li>
+            <li></li>
+            <li>
+              <span class="blue">alert</span>( <span class="pink">new </span>
+              <span class="blue">BigUser</span>().name );
+              <span class="comment">// Godzilla, got that object</span>
+            </li>
+          </ol>
+        </div>
+        <p>
+          And here’s an example with an empty return (or we could place a
+          primitive after it, doesn’t matter):
+        </p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="pink">function </span>
+              <span class="blue">SmallUser</span>(){
+            </li>
+            <li>
+              &nbsp;&nbsp;<span class="pink">this</span>.name
+              <span class="pink">=</span> <span class="yellow">"John"</span>
+            </li>
+            <li>
+              <span class="pink">return </span>;
+              <span class="comment">// returns this</span>
+            </li>
+            <li>}</li>
+            <li></li>
+            <li>
+              <span class="blue">alert</span>( <span class="pink">new </span>
+              <span class="blue">SmallUser</span>().name );
+              <span class="comment">// John</span>
+            </li>
+          </ol>
+        </div>
+        <h2>Methods in constructor</h2>
+        <p>
+          The constructor function may have parameters that define how to
+          construct the object, and what to put in it.
+        </p>
+        <p>
+          Of course, we can add to this not only properties, but methods as
+          well.
+        </p>
+        <div class="code-container">
+          <ol>
+            <li>
+              <span class="pink">function </span>
+              <span class="blue">User</span>(name) {
+            </li>
+            <li>
+              &nbsp;&nbsp; <span class="pink">this</span>.name
+              <span class="pink">=</span> name;
+            </li>
+            <li></li>
+            <li>
+              &nbsp;&nbsp; <span class="pink">this</span>.sayHi
+              <span class="pink">= function</span>() {
+            </li>
+            <li>
+              &nbsp;&nbsp;&nbsp;&nbsp; <span class="blue">alert</span>(
+              <span class="yellow">"My name is: "</span>
+              <span class="pink">+ this</span>.name );
+            </li>
+            <li>&nbsp;&nbsp;};</li>
+            <li>}</li>
+            <li></li>
+            <li>
+              <span class="pink">let</span> john
+              <span class="pink">= new</span>
+              <span class="blue">User</span>(<span class="yellow">"John"</span>
+              );
+            </li>
+            <li></li>
+            <li>
+              john.<span class="blue">sayHi</span>();
+              <span class="comment"> // My name is: John</span>
+            </li>
+          </ol>
+        </div>
       </div>
     </div>
   </body>
